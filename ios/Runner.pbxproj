@@ -1,0 +1,2 @@
+ProvisioningStyle = Manual;
+/* Hack around https://github.com/microsoft/azure-pipelines-tasks/blob/e7769b150b919695f76369da636f65532689c50d/Tasks/XcodeV5/xcodeutils.ts#L144 to force default project */

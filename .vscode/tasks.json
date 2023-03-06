@@ -1,0 +1,54 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "flutter build_runner watch",
+            "type": "shell",
+            "command": "${config:dart.flutterSdkPath}/bin/flutter",
+            "windows": {
+                "command": "${config:dart.flutterSdkPath}/bin/flutter.bat"
+            },
+            "args": [
+                "packages",
+                "pub",
+                "run",
+                "build_runner",
+                "watch",
+                "--delete-conflicting-outputs"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "flutter build_runner build",
+            "type": "shell",
+            "command": "${config:dart.flutterSdkPath}/bin/flutter",
+            "windows": {
+                "command": "${config:dart.flutterSdkPath}/bin/flutter.bat"
+            },
+            "args": [
+                "packages",
+                "pub",
+                "run",
+                "build_runner",
+                "build",
+                "--delete-conflicting-outputs"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Generate icon",
+            "type": "shell",
+            "command": "${config:dart.flutterSdkPath}/bin/flutter",
+            "windows": {
+                "command": "${config:dart.flutterSdkPath}/bin/flutter.bat"
+            },
+            "args": [
+                "pub",
+                "run",
+                "flutter_launcher_icons:main"
+            ]
+        }
+    ]
+}

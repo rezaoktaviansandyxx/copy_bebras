@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>147955873846-frpkvuqpetenbn4r1l8a0qc8e23rpb9j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.147955873846-frpkvuqpetenbn4r1l8a0qc8e23rpb9j</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD54hRGwkawkgAANpbsmUDYw4_n4BL27Go</string>
+	<key>GCM_SENDER_ID</key>
+	<string>147955873846</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.fluxbiz.app</string>
+	<key>PROJECT_ID</key>
+	<string>flux-app-id</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flux-app-id.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:147955873846:ios:ab63d913bb4fcf391c4097</string>
+	<key>DATABASE_URL</key>
+	<string>https://flux-app-id.firebaseio.com</string>
+</dict>
+</plist>
