@@ -1,0 +1,232 @@
+{
+    "isSuccess": true,
+    "statusCode": 200,
+    "message": "OK",
+    "path": "/api/assessment/v3/08daefaa-ec4f-468f-8c78-3e889e2eb454",
+    "payload": {
+        "id": "08daefaa-ec4f-468f-8c78-3e889e2eb454",
+        "title": "Business Analyst",
+        "description": "A business analyst is a professional who uses data-driven techniques to evaluate an organization's business processes and systems, identify areas for improvement, and recommend solutions that align with the organization's goals and objectives.",
+        "htmlContent": "<p>A business analyst is a professional who uses data-driven techniques to evaluate an organization's business processes and systems, identify areas for improvement, and recommend solutions that align with the organization's goals and objectives.<br></p>",
+        "publishDate": "2023-01-06T05:57:41.424671",
+        "startDate": "2023-01-01T00:00:00",
+        "endDate": "2030-12-31T00:00:00",
+        "totalQuestion": 0,
+        "isActive": true,
+        "topicId": "c4474baa-e08f-40f9-96d8-4b56766777fe",
+        "version": 2,
+        "versionName": "Version 3",
+        "questions": [
+            {
+                "id": "1",
+                "title": "Santi si ular berdansa:| <b>Tantangan:</b></br> Dengan memperhatikan pola gerakan si Santi, gambar yang mana yang cocok untuk gerakan ke lima?",
+                "keyBehaviorId": "33cbbb8e-47a3-4b99-b4e4-5dd10e52fbd9",
+                "imageUrl" : "seta_image_no_1.png",
+                "type": 0,
+                "assessmentId": "08da742c-e386-4c12-8391-1877aef534db",
+                "answers": [
+                    {
+                        "id": "1",
+                        "title": "",
+                        "imageUrl": "seta_image_no_1a.png",
+                        "score": 0,
+                        "questionId": "de9431fb-e6d6-4886-b54c-b5c8b57ce9a9"
+                    },
+                    {
+                        "id": "2",
+                        "title": "",
+                        "imageUrl": "seta_image_no_1b.png",
+                        "score": 0,
+                        "questionId": "de9431fb-e6d6-4886-b54c-b5c8b57ce9a9"
+                    },
+                    {
+                        "id": "3",
+                        "title": "",
+                        "imageUrl": "seta_image_no_1c.png",
+                        "score": 1,
+                        "questionId": "de9431fb-e6d6-4886-b54c-b5c8b57ce9a9"
+                    },
+                    {
+                        "id": "4",
+                        "title": "",
+                        "imageUrl": "seta_image_no_1d.png",
+                        "score": 0,
+                        "questionId": "de9431fb-e6d6-4886-b54c-b5c8b57ce9a9"
+                    }
+                ]
+            },
+            {
+                "id": "2",
+                "title": "Ada 3 robot yaitu Lea, Moe, dan Bob| Lima pernyataan berikut mendeskripsikan ketiga robot tersebut:</br>1. Bob dan Moe tersenyum.</br>2. Bob, Moe dan Lea masing-masing mempunyai dua kaki.</br>3. Moe mempunyai kepala bulat dan Lea mempunyai dua kaki.</br>4. Masing-masing robot mempunyai 5 jari tangan.</br>5. Lea atau Bob (salah satu dari mereka) mengangkat tangan. </br></br><b>Tantangan:</b></br> Pernyataan mana yang benar?",
+                "keyBehaviorId": "33cbbb8e-47a3-4b99-b4e4-5dd10e52fbd9",
+                "imageUrl" : "seta_image_no_2.png",
+                "type": 0,
+                "assessmentId": "08da742c-e386-4c12-8391-1877aef534db",
+                "answers": [
+                    {
+                        "id": "1",
+                        "title": "2 dan 3",
+                        "imageUrl": "",
+                        "score": 0,
+                        "questionId": "9e1083aa-a9f5-481a-8d14-db14a05cf6ae"
+                    },
+                    {
+                        "id": "2",
+                        "title": "1 dan 3",
+                        "imageUrl": "",
+                        "score": 0,
+                        "questionId": "9e1083aa-a9f5-481a-8d14-db14a05cf6ae"
+                    },
+                    {
+                        "id": "3",
+                        "title": "1 dan 5",
+                        "imageUrl": "",
+                        "score": 1,
+                        "questionId": "9e1083aa-a9f5-481a-8d14-db14a05cf6ae"
+                    },
+                    {
+                        "id": "4",
+                        "title": "2 dan 3",
+                        "imageUrl": "",
+                        "score": 0,
+                        "questionId": "9e1083aa-a9f5-481a-8d14-db14a05cf6ae"
+                    }
+                ]
+            },
+            {
+                "id": "3",
+                "title": "Bella dari planet Belena mempunyai banyak balon. Ia selalu menaruh balonnya dalam posisi sebuah barisan sehingga urutan warnanya sama jika dilihat dari ujung kiri ke kanan, maupun dari ujung kanan ke kiri. Sayangnya, ia hanya bisa melihat 4 warna berbeda yaitu hijau (G), kuning (Y), merah (R) and biru (B). Bagi Bella, ungu (P) tampak sama dengan kuning (Y). Contoh: Bella akan melihat setiap barisan balon sebagai berikut sama jika dirunut dari yang paling kiri ke kanan maupun dari yang paling kanan ke kiri.| <b>Tantangan:</b></br> Barisan balon mana yang bagi Bella akan terlihat sama urutan warnanya?",
+                "keyBehaviorId": "557a8713-2027-4bd2-99c9-19d0112cb9c7",
+                "imageUrl" : "seta_image_no_3.png",
+                "type": 0,
+                "assessmentId": "08da742c-e386-4c12-8391-1877aef534db",
+                "answers": [
+                    {
+                        "id": "1",
+                        "title": "",
+                        "imageUrl" : "seta_image_no_3a.png",
+                        "score": 1,
+                        "questionId": "d85f4052-b8ca-454f-86cb-4c951013281a"
+                    },
+                    {
+                        "id": "2",
+                        "title": "",
+                        "imageUrl" : "seta_image_no_3b.png",
+                        "score": 1,
+                        "questionId": "d85f4052-b8ca-454f-86cb-4c951013281a"
+                    },
+                    {
+                        "id": "3",
+                        "title": "",
+                        "imageUrl" : "seta_image_no_3c.png",
+                        "score": 0,
+                        "questionId": "d85f4052-b8ca-454f-86cb-4c951013281a"
+                    },
+                    {
+                        "id": "4",
+                        "title": "",
+                        "imageUrl" : "seta_image_no_3d.png",
+                        "score": 0,
+                        "questionId": "d85f4052-b8ca-454f-86cb-4c951013281a"
+                    }
+                ]
+            },
+            {
+                "id": "4",
+                "title": "Landak Etna (di pojok kiri bawah) ingin pergi ke bukit semut. Untuk pergi ke sana, ia harus mengumpulkan semut merah (yang pada gambar lebih besar). Bantulah Etna untuk menentukan jalannya dengan menyebutkan arahnya: Kanan (untuk ke kanan), Kiri (untuk ke kiri), Naik (untuk ke atas), Turun (untuk ke bawah).| <b>Tantangan:</b></br> Perintah mana yang harus diberikan kepada Bebras tersebut?",
+                "keyBehaviorId": "856206c3-cd25-45fe-a3a1-fcdc80725ac6",
+                "imageUrl" : "seta_image_no_4.png",
+                "type": 0,
+                "assessmentId": "08daefaa-ec4f-468f-8c78-3e889e2eb454",
+                "answers": [
+                    {
+                        "id": "1",
+                        "title": "Kanan, Naik, Kanan, Naik, Kanan, Naik, Kanan, Turun",
+                        "imageUrl": "",
+                        "score": 1,
+                        "questionId": "c1fa46f6-b77d-407f-929c-60132cc9bca2"
+                    },
+                    {
+                        "id": "2",
+                        "title": "Kanan, Naik, Kanan, Turun, Kanan, Naik, Kanan",
+                        "imageUrl": "",
+                        "score": 1,
+                        "questionId": "c1fa46f6-b77d-407f-929c-60132cc9bca2"
+                    },
+                    {
+                        "id": "3",
+                        "title": "Kanan, Naik, Kanan, Naik, Kiri, Turun, Kanan",
+                        "imageUrl": "",
+                        "score": 1,
+                        "questionId": "c1fa46f6-b77d-407f-929c-60132cc9bca2"
+                    },
+                    {
+                        "id": "4",
+                        "title": "Kanan, Naik, Kanan, Turun, Kanan, Turun, Kanan",
+                        "score": 0,
+                        "questionId": "c1fa46f6-b77d-407f-929c-60132cc9bca2"
+                    }
+                ]
+            },
+            {
+                "id": "5",
+                "title": "Joni si berang-berang harus memasang tali pada sekumpulan pohon, sehingga tali mengenai batang bagian luar pohon sebanyak-banyaknya. Sebagai contoh, jika ada 6 pohon pada posisi seperti gambar berikut, maka Joni hanya dapat memasang tali pada 5 pohon.| <b>Tantangan:</b></br> Jika sekumpulan pohon yang ada adalah sebagai berikut, berapa pohon yang dapat dikenai tali dengan cara tersebut?|",
+                "keyBehaviorId": "856206c3-cd25-45fe-a3a1-fcdc80725ac6",
+                "imageUrl" : "seta_image_no_5a.png|seta_image_no_5b.png",
+                "type": 0,
+                "assessmentId": "08daefaa-ec4f-468f-8c78-3e889e2eb454",
+                "answers": [
+                    {
+                        "id": "1",
+                        "title": "5",
+                        "imageUrl": "",
+                        "score": 0,
+                        "questionId": "0128e54e-d03d-457e-8478-415252f022d3"
+                    },
+                    {
+                        "id": "2",
+                        "title": "7",
+                        "imageUrl": "",
+                        "score": 0,
+                        "questionId": "0128e54e-d03d-457e-8478-415252f022d3"
+                    },
+                    {
+                        "id": "3",
+                        "title": "4",
+                        "imageUrl": "",
+                        "score": 0,
+                        "questionId": "0128e54e-d03d-457e-8478-415252f022d3"
+                    },
+                    {
+                        "id": "4",
+                        "title": "6",
+                        "imageUrl": "",
+                        "score": 1,
+                        "questionId": "0128e54e-d03d-457e-8478-415252f022d3"
+                    }
+                ]
+            },
+            {
+                "id": "6",
+                "title": "Implementation planning activities include all of the following EXCEPT:",
+                "keyBehaviorId": "856206c3-cd25-45fe-a3a1-fcdc80725ac6",
+                "type": 0,
+                "assessmentId": "08daefaa-ec4f-468f-8c78-3e889e2eb454",
+                "answers": [
+                    {
+                        "id": "6c30ecc7-10f6-4956-b428-8a035e9ff95c",
+                        "title": "finalizing payments and shutting down funding",
+                        "score": 0,
+                        "questionId": "9aa95498-b273-47ce-84bf-8efafac7840f"
+                    },
+                    {
+                        "id": "6dbe6104-ad52-46d9-9c36-b25ee8cb6c4a",
+                        "title": "supporting ongoing training needs",
+                        "score": 1,
+                        "questionId": "9aa95498-b273-47ce-84bf-8efafac7840f"
+                    }
+                ]
+            }
+        ]
+    }
+}

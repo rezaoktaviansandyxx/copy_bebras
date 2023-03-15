@@ -1,0 +1,61 @@
+login.description: Level up your managerial skill
+login.placeholder.emailaddress: Alamat Email
+login.placeholder.fullname: Nama Panggilan
+login.placeholder.password: Password
+login.placeholder.confirmation_password: Konfirmasi Password
+login.button.login: Login
+login.button.forgotpassword: Forgot password?
+login.button.loginwithfb: Login with facebook
+login.button.registeraccount: Register new account
+login.button.register: Daftar
+login.button.register_success: Pendaftaran berhasil
+login.urlcompany.placeholder: URL Company
+
+common.invalidemail: Email tidak valid
+common.cantbenull: Tidak boleh kosong
+common.validation.password_confirmation: Password harus sama
+common.ok: Ok
+common.empty: Empty
+
+home.card_new: NEW
+home.userinfo.text1: "Hi "
+home.userinfo.text2: ", Apa yang ingin kamu pelajari hari ini? yuk cari disini"
+home.textbox.search: "Cari disini..."
+
+recent_session.title: Recent Session
+
+popular_session.title: Popular Session
+
+list_of_author.title: List of Author
+list_of_author.more: + More
+
+main_tab.home.title: Home
+main_tab.activities.title: Activities
+main_tab.browse.title: Browse
+main_tab.goals.title: Goals
+main_tab.agendas.title: Agendas
+
+settings.title: Settings
+settings.profile.email: Email
+settings.profile.logout: Logout
+
+activities.title: My Activities
+activities.tab.ongoing: On Going
+activities.tab.completed: Completed
+
+agendas.title: Agendas
+agendas.task: Task
+
+get_started.sub1: Welcome to Flux
+get_started.sub2: The best place to level up your managerial skill
+get_started.button.get_started: Get started
+get_started.button.question.sub1: You already have an account? 
+get_started.button.question.sub2: Signin here
+
+faq.title: FAQ
+faq.searchfaq: Search FAQ
+
+privacypolicy.title: Privacy Policy
+aboutus.title: About Us
+
+urlcompany.notfound: URL company not found

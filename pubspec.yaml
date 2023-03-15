@@ -1,0 +1,186 @@
+name: fluxmobileapp
+description: A new Flutter project.
+publish_to : none
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.4.7+15
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+  flutter: ">=3.3.8"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  logger: ^1.1.0
+  path_provider: ^2.0.11
+  yaml: ^3.1.1
+  rxdart: ^0.27.7
+  rx_shared_preferences: ^3.0.0
+  mobx: ^2.1.3
+  flutter_mobx: ^2.0.6+5
+  flutter_swiper_null_safety: ^1.0.2
+  dio: ^4.0.6
+  json_annotation: ^4.7.0
+  uuid: ^3.0.7
+  flutter_secure_storage: ^7.0.1
+  cached_network_image: ^3.2.3
+  shimmer: ^2.0.0
+  provider: ^6.0.5
+  font_awesome_flutter: ^10.3.0
+  intl: ^0.18.0
+  scrollable_positioned_list: ^0.3.5
+  flutter_inappwebview: ^5.7.2+3
+  pull_to_refresh: ^2.0.0
+  expandable: ^5.0.1
+  youtube_player_flutter: ^8.1.2
+  tuple: ^2.0.1
+  firebase_messaging: ^14.2.1
+  flutter_local_notifications: ^13.0.0
+  spider_chart: ^0.2.0
+  # simple_tooltip: 0.1.14
+  simple_tooltip:
+    path: external_libs/simple_tooltp
+  tuxin_tutorial_overlay:
+    path: external_libs/tuxin_tutorial_overlay
+  smooth_page_indicator: ^1.0.0+2
+  flutter_hooks: ^0.18.5+1
+  touchable: ^1.0.2
+  flutter_rating_bar: ^4.0.1
+  url_launcher: ^6.1.7
+  quiver: ^3.2.1
+  flutter_html: ^3.0.0-alpha.6
+  collection: ^1.15.0-nullsafety.4
+  flutter_svg: ^1.1.6
+  get: ^4.6.5
+  flutter_profile_picture: ^2.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.3.3
+  mobx_codegen: ^2.1.1
+  retrofit_generator: ^4.2.0
+  json_serializable: ^6.5.4
+  flutter_launcher_icons: ^0.11.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  assets:
+    - images/
+    - images/icons/
+    - images/bebras/
+    - images/soala/
+    - assets/i18n/
+    - assets/jsonfile/
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: fonts/roboto/Roboto-Thin.ttf
+          weight: 100
+        - asset: fonts/roboto/Roboto-ThinItalic.ttf
+          weight: 100
+          style: italic
+
+        - asset: fonts/roboto/Roboto-Light.ttf
+          weight: 300
+        - asset: fonts/roboto/Roboto-LightItalic.ttf
+          weight: 300
+          style: italic
+
+        - asset: fonts/roboto/Roboto-Regular.ttf
+          weight: 400
+
+        - asset: fonts/roboto/Roboto-Medium.ttf
+          weight: 600
+        - asset: fonts/roboto/Roboto-MediumItalic.ttf
+          weight: 600
+          style: italic
+
+        - asset: fonts/roboto/Roboto-Bold.ttf
+          weight: 700
+        - asset: fonts/roboto/Roboto-BoldItalic.ttf
+          weight: 700
+
+        - asset: fonts/roboto/Roboto-Black.ttf
+          weight: 900
+        - asset: fonts/roboto/Roboto-BlackItalic.ttf
+          weight: 900
+
+    - family: Rubik
+      fonts:
+        - asset: fonts/rubik/Rubik-Light.ttf
+          weight: 300
+        - asset: fonts/rubik/Rubik-LightItalic.ttf
+          weight: 300
+          style: italic
+
+        - asset: fonts/rubik/Rubik-Italic.ttf
+          weight: 400
+          style: italic
+
+        - asset: fonts/rubik/Rubik-Regular.ttf
+          weight: 400
+
+        - asset: fonts/rubik/Rubik-Medium.ttf
+          weight: 600
+        - asset: fonts/rubik/Rubik-MediumItalic.ttf
+          weight: 600
+          style: italic
+
+        - asset: fonts/rubik/Rubik-Bold.ttf
+          weight: 700
+        - asset: fonts/rubik/Rubik-BoldItalic.ttf
+          weight: 700
+
+        - asset: fonts/rubik/Rubik-Black.ttf
+          weight: 900
+        - asset: fonts/rubik/Rubik-BlackItalic.ttf
+          weight: 900
+
+    - family: Quicksand
+      fonts:
+        - asset: fonts/quicksand/Quicksand-Bold.ttf
+          weight: 700
+
+        - asset: fonts/quicksand/Quicksand-Light.ttf
+          weight: 300
+
+        - asset: fonts/quicksand/Quicksand-Medium.ttf
+          weight: 500
+
+        - asset: fonts/quicksand/Quicksand-Regular.ttf
+          weight: 400
+
+        - asset: fonts/quicksand/Quicksand-SemiBold.ttf
+          weight: 600
+
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path_android: "images/android_icon.png"
+  image_path_ios: "images/ios_icon.png"

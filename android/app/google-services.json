@@ -1,0 +1,155 @@
+{
+  "project_info": {
+    "project_number": "147955873846",
+    "firebase_url": "https://flux-app-id.firebaseio.com",
+    "project_id": "flux-app-id",
+    "storage_bucket": "flux-app-id.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147955873846:android:10feeb1179e3acd11c4097",
+        "android_client_info": {
+          "package_name": "com.flux.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147955873846-lja6r7iol7hqmhhudpv9ek2nvtoetfp3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhF0QhaHdivFL90PtD6P3QGCuJ2cjiPK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147955873846-lja6r7iol7hqmhhudpv9ek2nvtoetfp3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "147955873846-srou5540cgksv45grq9itnv2rc3i3fv4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fluxid.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147955873846:android:bc9e59ab77ca92991c4097",
+        "android_client_info": {
+          "package_name": "com.flux_biz.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147955873846-lja6r7iol7hqmhhudpv9ek2nvtoetfp3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhF0QhaHdivFL90PtD6P3QGCuJ2cjiPK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147955873846-lja6r7iol7hqmhhudpv9ek2nvtoetfp3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "147955873846-srou5540cgksv45grq9itnv2rc3i3fv4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fluxid.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147955873846:android:065f00af153e6c251c4097",
+        "android_client_info": {
+          "package_name": "com.fluxbiz.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147955873846-lja6r7iol7hqmhhudpv9ek2nvtoetfp3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhF0QhaHdivFL90PtD6P3QGCuJ2cjiPK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147955873846-lja6r7iol7hqmhhudpv9ek2nvtoetfp3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "147955873846-srou5540cgksv45grq9itnv2rc3i3fv4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fluxid.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147955873846:android:84898bf44a0922e71c4097",
+        "android_client_info": {
+          "package_name": "com.fluxid.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147955873846-lja6r7iol7hqmhhudpv9ek2nvtoetfp3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhF0QhaHdivFL90PtD6P3QGCuJ2cjiPK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147955873846-lja6r7iol7hqmhhudpv9ek2nvtoetfp3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "147955873846-srou5540cgksv45grq9itnv2rc3i3fv4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fluxid.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
