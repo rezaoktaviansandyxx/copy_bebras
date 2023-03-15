@@ -235,12 +235,12 @@ class AssessmentQuestion extends HookWidget {
                                           final checkedQuestion =
                                               store!.currentQuestion!.title ??
                                                   "";
-                                          final split =
+                                          final splitQuestion =
                                               checkedQuestion.split("|");
                                           final splitImage =
                                               checkedImage.split("|");
                                           final count = [
-                                            split.length,
+                                            splitQuestion.length,
                                             splitImage.length
                                           ].reduce(
                                             (max, element) {
@@ -253,10 +253,10 @@ class AssessmentQuestion extends HookWidget {
                                           );
                                           List<Widget> list = [];
                                           for (int i = 0; i < count; i++) {
-                                            if (i < split.length) {
+                                            if (i < splitQuestion.length) {
                                               list.add(
                                                 AppHtml(
-                                                  split[i],
+                                                  splitQuestion[i],
                                                 ),
                                               );
                                             }
@@ -274,6 +274,39 @@ class AssessmentQuestion extends HookWidget {
                                                       100,
                                                 ),
                                               );
+                                            }
+                                            if (i < splitQuestion.length) {
+                                              list.add(
+                                                AppHtml(
+                                                  splitQuestion[i + 1],
+                                                ),
+                                              );
+                                            }
+                                            if (i < splitImage.length) {
+                                              checkedImage.contains("|")
+                                                  ? list.add(
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 10),
+                                                        child: Image.asset(
+                                                          'images/soala/${splitImage[i + 1]}',
+                                                          errorBuilder: (context,
+                                                                  error,
+                                                                  stackTrace) =>
+                                                              Container(),
+                                                          height: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              20 /
+                                                              100,
+                                                        ),
+                                                      ),
+                                                    )
+                                                  : Column(
+                                                      children: list,
+                                                    );
                                             }
                                             if (list.length > 1) {
                                               return Column(

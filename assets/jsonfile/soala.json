@@ -19,7 +19,7 @@
         "questions": [
             {
                 "id": "1",
-                "title": "Santi si ular berdansa:| <b>Tantangan:</b></br> Dengan memperhatikan pola gerakan si Santi, gambar yang mana yang cocok untuk gerakan ke lima?",
+                "title": "Santi si ular berdansa:</br>| </br><b>Tantangan:</b></br> Dengan memperhatikan pola gerakan si Santi, gambar yang mana yang cocok untuk gerakan ke lima?",
                 "keyBehaviorId": "33cbbb8e-47a3-4b99-b4e4-5dd10e52fbd9",
                 "imageUrl" : "seta_image_no_1.png",
                 "type": 0,
@@ -57,7 +57,7 @@
             },
             {
                 "id": "2",
-                "title": "Ada 3 robot yaitu Lea, Moe, dan Bob| Lima pernyataan berikut mendeskripsikan ketiga robot tersebut:</br>1. Bob dan Moe tersenyum.</br>2. Bob, Moe dan Lea masing-masing mempunyai dua kaki.</br>3. Moe mempunyai kepala bulat dan Lea mempunyai dua kaki.</br>4. Masing-masing robot mempunyai 5 jari tangan.</br>5. Lea atau Bob (salah satu dari mereka) mengangkat tangan. </br></br><b>Tantangan:</b></br> Pernyataan mana yang benar?",
+                "title": "Ada 3 robot yaitu Lea, Moe, dan Bob</br>| </br>Lima pernyataan berikut mendeskripsikan ketiga robot tersebut:</br>1. Bob dan Moe tersenyum.</br>2. Bob, Moe dan Lea masing-masing mempunyai dua kaki.</br>3. Moe mempunyai kepala bulat dan Lea mempunyai dua kaki.</br>4. Masing-masing robot mempunyai 5 jari tangan.</br>5. Lea atau Bob (salah satu dari mereka) mengangkat tangan. </br></br><b>Tantangan:</b></br> Pernyataan mana yang benar?",
                 "keyBehaviorId": "33cbbb8e-47a3-4b99-b4e4-5dd10e52fbd9",
                 "imageUrl" : "seta_image_no_2.png",
                 "type": 0,
@@ -95,7 +95,7 @@
             },
             {
                 "id": "3",
-                "title": "Bella dari planet Belena mempunyai banyak balon. Ia selalu menaruh balonnya dalam posisi sebuah barisan sehingga urutan warnanya sama jika dilihat dari ujung kiri ke kanan, maupun dari ujung kanan ke kiri. Sayangnya, ia hanya bisa melihat 4 warna berbeda yaitu hijau (G), kuning (Y), merah (R) and biru (B). Bagi Bella, ungu (P) tampak sama dengan kuning (Y). Contoh: Bella akan melihat setiap barisan balon sebagai berikut sama jika dirunut dari yang paling kiri ke kanan maupun dari yang paling kanan ke kiri.| <b>Tantangan:</b></br> Barisan balon mana yang bagi Bella akan terlihat sama urutan warnanya?",
+                "title": "Bella dari planet Belena mempunyai banyak balon. Ia selalu menaruh balonnya dalam posisi sebuah barisan sehingga urutan warnanya sama jika dilihat dari ujung kiri ke kanan, maupun dari ujung kanan ke kiri. Sayangnya, ia hanya bisa melihat 4 warna berbeda yaitu hijau (G), kuning (Y), merah (R) and biru (B). Bagi Bella, ungu (P) tampak sama dengan kuning (Y). Contoh: Bella akan melihat setiap barisan balon sebagai berikut sama jika dirunut dari yang paling kiri ke kanan maupun dari yang paling kanan ke kiri.</br>| <br><b>Tantangan:</b></br> Barisan balon mana yang bagi Bella akan terlihat sama urutan warnanya?",
                 "keyBehaviorId": "557a8713-2027-4bd2-99c9-19d0112cb9c7",
                 "imageUrl" : "seta_image_no_3.png",
                 "type": 0,
@@ -133,7 +133,7 @@
             },
             {
                 "id": "4",
-                "title": "Landak Etna (di pojok kiri bawah) ingin pergi ke bukit semut. Untuk pergi ke sana, ia harus mengumpulkan semut merah (yang pada gambar lebih besar). Bantulah Etna untuk menentukan jalannya dengan menyebutkan arahnya: Kanan (untuk ke kanan), Kiri (untuk ke kiri), Naik (untuk ke atas), Turun (untuk ke bawah).| <b>Tantangan:</b></br> Perintah mana yang harus diberikan kepada Bebras tersebut?",
+                "title": "Landak Etna (di pojok kiri bawah) ingin pergi ke bukit semut. Untuk pergi ke sana, ia harus mengumpulkan semut merah (yang pada gambar lebih besar). Bantulah Etna untuk menentukan jalannya dengan menyebutkan arahnya: Kanan (untuk ke kanan), Kiri (untuk ke kiri), Naik (untuk ke atas), Turun (untuk ke bawah).</br>| </br><b>Tantangan:</b></br> Perintah mana yang harus diberikan kepada Bebras tersebut?",
                 "keyBehaviorId": "856206c3-cd25-45fe-a3a1-fcdc80725ac6",
                 "imageUrl" : "seta_image_no_4.png",
                 "type": 0,
@@ -170,7 +170,7 @@
             },
             {
                 "id": "5",
-                "title": "Joni si berang-berang harus memasang tali pada sekumpulan pohon, sehingga tali mengenai batang bagian luar pohon sebanyak-banyaknya. Sebagai contoh, jika ada 6 pohon pada posisi seperti gambar berikut, maka Joni hanya dapat memasang tali pada 5 pohon.| <b>Tantangan:</b></br> Jika sekumpulan pohon yang ada adalah sebagai berikut, berapa pohon yang dapat dikenai tali dengan cara tersebut?|",
+                "title": "Joni si berang-berang harus memasang tali pada sekumpulan pohon, sehingga tali mengenai batang bagian luar pohon sebanyak-banyaknya. Sebagai contoh, jika ada 6 pohon pada posisi seperti gambar berikut, maka Joni hanya dapat memasang tali pada 5 pohon.</br>| </br><b>Tantangan:</b></br> Jika sekumpulan pohon yang ada adalah sebagai berikut, berapa pohon yang dapat dikenai tali dengan cara tersebut?",
                 "keyBehaviorId": "856206c3-cd25-45fe-a3a1-fcdc80725ac6",
                 "imageUrl" : "seta_image_no_5a.png|seta_image_no_5b.png",
                 "type": 0,
@@ -210,6 +210,7 @@
                 "id": "6",
                 "title": "Implementation planning activities include all of the following EXCEPT:",
                 "keyBehaviorId": "856206c3-cd25-45fe-a3a1-fcdc80725ac6",
+                "imageUrl": "",
                 "type": 0,
                 "assessmentId": "08daefaa-ec4f-468f-8c78-3e889e2eb454",
                 "answers": [
