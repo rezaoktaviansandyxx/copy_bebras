@@ -731,7 +731,7 @@ abstract class AppClientServices {
     CancelToken? cancelToken,
   }) async {
     final String _result =
-        await rootBundle.loadString('/jsonfile/soala.json');
+        await rootBundle.loadString('assets/jsonfile/soala.json');
     final jsondata = jsonDecode(_result);
     // await _dio.get(
     //   '/api/assessment/v3/$id',

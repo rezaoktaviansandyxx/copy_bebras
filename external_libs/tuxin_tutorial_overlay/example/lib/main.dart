@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, this.title}) : super(key: key);
+  MyHomePage({Key key, this.title}) : super(key: key);
 
-  final String? title;
+  final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   double _leftPosition = 0;
   @override
   void initState() {
-    setTutorialShowOverlayHook((String? tagName) => print('SHOWING $tagName'));
+    setTutorialShowOverlayHook((String tagName) => print('SHOWING $tagName'));
     SchedulerBinding.instance.addPostFrameCallback((_) {
       createTutorialOverlay(
           context: context,
@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title!),
+        title: Text(widget.title),
       ),
       body: Center(
         child: Column(
