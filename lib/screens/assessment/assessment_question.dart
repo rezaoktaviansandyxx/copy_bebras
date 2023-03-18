@@ -265,7 +265,7 @@ class AssessmentQuestion extends HookWidget {
                                                     minScale: 0.1,
                                                     maxScale: 2.0,
                                                     child: Image.asset(
-                                                      'images/soala/${splitImage[i]}',
+                                                      'images/soala/${splitImage[i]}.png',
                                                       errorBuilder: (context,
                                                               error,
                                                               stackTrace) =>
@@ -451,7 +451,7 @@ class AssessmentQuestion extends HookWidget {
                                                                           .center,
                                                                   child: Image
                                                                       .asset(
-                                                                    'images/soala/${item.imageUrl}',
+                                                                    'images/soala/${item.imageUrl}.png',
                                                                     errorBuilder: (context,
                                                                             error,
                                                                             stackTrace) =>

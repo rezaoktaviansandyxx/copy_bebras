@@ -21,35 +21,35 @@
                 "id": "1",
                 "title": "Santi si ular berdansa:| <b>Tantangan:</b></br> Dengan memperhatikan pola gerakan si Santi, gambar yang mana yang cocok untuk gerakan ke lima?",
                 "keyBehaviorId": "33cbbb8e-47a3-4b99-b4e4-5dd10e52fbd9",
-                "imageUrl" : "seta_image_no_1.png",
+                "imageUrl" : "seta_image_no_1",
                 "type": 0,
                 "assessmentId": "08da742c-e386-4c12-8391-1877aef534db",
                 "answers": [
                     {
                         "id": "1",
                         "title": "",
-                        "imageUrl": "seta_image_no_1a.png",
+                        "imageUrl": "seta_image_no_1a",
                         "score": 0,
                         "questionId": "de9431fb-e6d6-4886-b54c-b5c8b57ce9a9"
                     },
                     {
                         "id": "2",
                         "title": "",
-                        "imageUrl": "seta_image_no_1b.png",
+                        "imageUrl": "seta_image_no_1b",
                         "score": 0,
                         "questionId": "de9431fb-e6d6-4886-b54c-b5c8b57ce9a9"
                     },
                     {
                         "id": "3",
                         "title": "",
-                        "imageUrl": "seta_image_no_1c.png",
+                        "imageUrl": "seta_image_no_1c",
                         "score": 1,
                         "questionId": "de9431fb-e6d6-4886-b54c-b5c8b57ce9a9"
                     },
                     {
                         "id": "4",
                         "title": "",
-                        "imageUrl": "seta_image_no_1d.png",
+                        "imageUrl": "seta_image_no_1d",
                         "score": 0,
                         "questionId": "de9431fb-e6d6-4886-b54c-b5c8b57ce9a9"
                     }
@@ -59,7 +59,7 @@
                 "id": "2",
                 "title": "Ada 3 robot yaitu Lea, Moe, dan Bob| Lima pernyataan berikut mendeskripsikan ketiga robot tersebut:</br>1. Bob dan Moe tersenyum.</br>2. Bob, Moe dan Lea masing-masing mempunyai dua kaki.</br>3. Moe mempunyai kepala bulat dan Lea mempunyai dua kaki.</br>4. Masing-masing robot mempunyai 5 jari tangan.</br>5. Lea atau Bob (salah satu dari mereka) mengangkat tangan. </br><b>Tantangan:</b></br> Pernyataan mana yang benar?",
                 "keyBehaviorId": "33cbbb8e-47a3-4b99-b4e4-5dd10e52fbd9",
-                "imageUrl" : "seta_image_no_2.png",
+                "imageUrl" : "seta_image_no_2",
                 "type": 0,
                 "assessmentId": "08da742c-e386-4c12-8391-1877aef534db",
                 "answers": [
@@ -97,35 +97,35 @@
                 "id": "3",
                 "title": "Bella dari planet Belena mempunyai banyak balon. Ia selalu menaruh balonnya dalam posisi sebuah barisan sehingga urutan warnanya sama jika dilihat dari ujung kiri ke kanan, maupun dari ujung kanan ke kiri. Sayangnya, ia hanya bisa melihat 4 warna berbeda yaitu hijau (G), kuning (Y), merah (R) and biru (B). Bagi Bella, ungu (P) tampak sama dengan kuning (Y). Contoh: Bella akan melihat setiap barisan balon sebagai berikut sama jika dirunut dari yang paling kiri ke kanan maupun dari yang paling kanan ke kiri.| <b>Tantangan:</b></br> Barisan balon mana yang bagi Bella akan terlihat sama urutan warnanya?",
                 "keyBehaviorId": "557a8713-2027-4bd2-99c9-19d0112cb9c7",
-                "imageUrl" : "seta_image_no_3.png",
+                "imageUrl" : "seta_image_no_3",
                 "type": 0,
                 "assessmentId": "08da742c-e386-4c12-8391-1877aef534db",
                 "answers": [
                     {
                         "id": "1",
                         "title": "",
-                        "imageUrl" : "seta_image_no_3a.png",
+                        "imageUrl" : "seta_image_no_3a",
                         "score": 1,
                         "questionId": "d85f4052-b8ca-454f-86cb-4c951013281a"
                     },
                     {
                         "id": "2",
                         "title": "",
-                        "imageUrl" : "seta_image_no_3b.png",
+                        "imageUrl" : "seta_image_no_3b",
                         "score": 1,
                         "questionId": "d85f4052-b8ca-454f-86cb-4c951013281a"
                     },
                     {
                         "id": "3",
                         "title": "",
-                        "imageUrl" : "seta_image_no_3c.png",
+                        "imageUrl" : "seta_image_no_3c",
                         "score": 0,
                         "questionId": "d85f4052-b8ca-454f-86cb-4c951013281a"
                     },
                     {
                         "id": "4",
                         "title": "",
-                        "imageUrl" : "seta_image_no_3d.png",
+                        "imageUrl" : "seta_image_no_3d",
                         "score": 0,
                         "questionId": "d85f4052-b8ca-454f-86cb-4c951013281a"
                     }
@@ -135,7 +135,7 @@
                 "id": "4",
                 "title": "Landak Etna (di pojok kiri bawah) ingin pergi ke bukit semut. Untuk pergi ke sana, ia harus mengumpulkan semut merah (yang pada gambar lebih besar). Bantulah Etna untuk menentukan jalannya dengan menyebutkan arahnya: Kanan (untuk ke kanan), Kiri (untuk ke kiri), Naik (untuk ke atas), Turun (untuk ke bawah).| <b>Tantangan:</b></br> Perintah mana yang harus diberikan kepada Bebras tersebut?",
                 "keyBehaviorId": "856206c3-cd25-45fe-a3a1-fcdc80725ac6",
-                "imageUrl" : "seta_image_no_4.png",
+                "imageUrl" : "seta_image_no_4",
                 "type": 0,
                 "assessmentId": "08daefaa-ec4f-468f-8c78-3e889e2eb454",
                 "answers": [
@@ -172,7 +172,7 @@
                 "id": "5",
                 "title": "Joni si berang-berang harus memasang tali pada sekumpulan pohon, sehingga tali mengenai batang bagian luar pohon sebanyak-banyaknya. Sebagai contoh, jika ada 6 pohon pada posisi seperti gambar berikut, maka Joni hanya dapat memasang tali pada 5 pohon.| <b>Tantangan:</b></br> Jika sekumpulan pohon yang ada adalah sebagai berikut, berapa pohon yang dapat dikenai tali dengan cara tersebut?",
                 "keyBehaviorId": "856206c3-cd25-45fe-a3a1-fcdc80725ac6",
-                "imageUrl" : "seta_image_no_5a.png|seta_image_no_5b.png",
+                "imageUrl" : "seta_image_no_5a|seta_image_no_5b",
                 "type": 0,
                 "assessmentId": "08daefaa-ec4f-468f-8c78-3e889e2eb454",
                 "answers": [
@@ -210,35 +210,35 @@
                 "id": "6",
                 "title": "Keluarga Berang-berang sedang mempersiapkan acara Festival Makanan, dan mereka ingin memanggang kue kering; Kati akan membuat kue. Dia sangat memperhatikan urutan membuat kue dengan memasukkan bahan kue dengan urutan yang benar. Ketika dia berjalan ke taman, dia melihat ada secarik kertas petunjuk pada setiap bahan kue yang akan digunakan. Gambar pada kertas petunjuk menjelaskan bahan kue yang harus ditambahkan pada urutan berikutnya. Hanya ada satu bahan kue yang tidak memiliki kertas. Ilustrasi taman seperti di bawah ini:| <b>Tantangan:</b></br> Bahan kue manakah yang harus dimasukkan pertama kali?",
                 "keyBehaviorId": "856206c3-cd25-45fe-a3a1-fcdc80725ac6",
-                "imageUrl": "seta_image_no_6.png",
+                "imageUrl": "seta_image_no_6",
                 "type": 0,
                 "assessmentId": "08daefaa-ec4f-468f-8c78-3e889e2eb454",
                 "answers": [
                     {
                         "id": "1",
                         "title": "",
-                        "imageUrl": "seta_image_no_6a.png",
+                        "imageUrl": "seta_image_no_6a",
                         "score": 0,
                         "questionId": "9aa95498-b273-47ce-84bf-8efafac7840f"
                     },
                     {
                         "id": "2",
                         "title": "",
-                        "imageUrl": "seta_image_no_6b.png",
+                        "imageUrl": "seta_image_no_6b",
                         "score": 1,
                         "questionId": "9aa95498-b273-47ce-84bf-8efafac7840f"
                     },
                     {
                         "id": "3",
                         "title": "",
-                        "imageUrl": "seta_image_no_6c.png",
+                        "imageUrl": "seta_image_no_6c",
                         "score": 0,
                         "questionId": "9aa95498-b273-47ce-84bf-8efafac7840f"
                     },
                     {
                         "id": "4",
                         "title": "",
-                        "imageUrl": "seta_image_no_6d.png",
+                        "imageUrl": "seta_image_no_6d",
                         "score": 0,
                         "questionId": "9aa95498-b273-47ce-84bf-8efafac7840f"
                     }
