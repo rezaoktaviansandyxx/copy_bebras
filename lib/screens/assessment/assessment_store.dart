@@ -1,3 +1,4 @@
+// ignore: unused_import
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -86,6 +87,12 @@ abstract class _AssessmentStore extends BaseStore with Store {
           final _userProfile = await appClientServices.getUserProfile();
           userProfile = _userProfile.payload;
         }
+
+        goToAssessment(0);
+        appServices!.navigatorState!.pushReplacementNamed(
+          '/assessment_question',
+          arguments: {'store': this},
+        );
 
         state = DataState.success;
       } catch (error) {

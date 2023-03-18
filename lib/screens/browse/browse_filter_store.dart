@@ -26,41 +26,47 @@ abstract class _BrowseFilterStore extends BaseStore with Store {
     getDefaultFilter = Command.parameter((p) async {
       final param = p ?? {};
       final TopicItem? paramTopicItem = param['topicItem'] as TopicItem?;
-      // final authors = await appClientServices!.getListAuthor(
-      //   page: 1,
-      //   pageSize: pageSize,
-      // );
-      // final topics = await appClientServices.getTopic(
-      //   GetTopicRequest()
-      //     ..page = 1
-      //     ..pageLimit = pageSize,
-      // );
+      final authors = await appClientServices!.getListAuthor(
+        page: 1,
+        pageSize: pageSize,
+      );
+      final topics = await appClientServices.getTopic(
+        GetTopicRequest()
+          ..page = 1
+          ..pageLimit = pageSize,
+      );
       BrowseFilterData createFilterData() {
         return BrowseFilterData(
-          authors: [
-            BrowseChipItem()
-              ..id = 'Bebras Indonesia'
-              ..name = 'Bebras Indonesia'
-              ..isSelected = false,
-          ],
-          topics: [
-            BrowseChipItem()
-              ..id = 'Sikecil'
-              ..name = 'Sikecil'
-              ..isSelected = paramTopicItem?.name == 'Sikecil',
-            BrowseChipItem()
-              ..id = 'Siaga'
-              ..name = 'Siaga'
-              ..isSelected = paramTopicItem?.name == 'Siaga',
-            BrowseChipItem()
-              ..id = 'Penggalang'
-              ..name = 'Penggalang'
-              ..isSelected = paramTopicItem?.name == 'Penggalang',
-            BrowseChipItem()
-              ..id = 'Penegak'
-              ..name = 'Penegak'
-              ..isSelected = paramTopicItem?.name == 'Penegak',
-          ],
+          // authors: [
+          //   BrowseChipItem()
+          //     ..id = 'Bebras Indonesia'
+          //     ..name = 'Bebras Indonesia'
+          //     ..isSelected = false,
+          // ],
+          topics: topics.payload!.map((f) {
+            return BrowseChipItem()
+              ..id = f.name
+              ..name = f.name
+              ..isSelected = paramTopicItem?.name == f.name;
+          }).toList(),
+          // [
+          // BrowseChipItem()
+          //   ..id = 'Sikecil'
+          //   ..name = 'Sikecil'
+          //   ..isSelected = paramTopicItem?.name == 'Sikecil',
+          // BrowseChipItem()
+          //   ..id = 'Siaga'
+          //   ..name = 'Siaga'
+          //   ..isSelected = paramTopicItem?.name == 'Siaga',
+          // BrowseChipItem()
+          //   ..id = 'Penggalang'
+          //   ..name = 'Penggalang'
+          //   ..isSelected = paramTopicItem?.name == 'Penggalang',
+          // BrowseChipItem()
+          //   ..id = 'Penegak'
+          //   ..name = 'Penegak'
+          //   ..isSelected = paramTopicItem?.name == 'Penegak',
+          // ],
           types: [
             BrowseChipItem()
               ..id = 'article'
@@ -77,17 +83,17 @@ abstract class _BrowseFilterStore extends BaseStore with Store {
           ],
         );
       }
-          // authors.payload!.map((f) {
-          //   return BrowseChipItem()
-          //     ..id = f.name
-          //     ..name = f.name;
-          // }).toList(),
-          // topics.payload!.map((f) {
-          //   return BrowseChipItem()
-          //     ..id = f.name
-          //     ..name = f.name
-          //     ..isSelected = paramTopicItem?.name == f.name;
-          // }).toList(),
+      // authors.payload!.map((f) {
+      //   return BrowseChipItem()
+      //     ..id = f.name
+      //     ..name = f.name;
+      // }).toList(),
+      // topics.payload!.map((f) {
+      //   return BrowseChipItem()
+      //     ..id = f.name
+      //     ..name = f.name
+      //     ..isSelected = paramTopicItem?.name == f.name;
+      // }).toList(),
 
       if (filterData == null) {
         filterData = createFilterData();

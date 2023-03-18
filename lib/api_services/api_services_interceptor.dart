@@ -13,7 +13,7 @@ class ApiServicesInterceptor extends Interceptor {
   Future onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
     if (options.headers.containsKey(authorization)) {
-      final loginResponse = await (secureStorage!.getLoginResponse());
+      final loginResponse = await (secureStorage?.getLoginResponse());
       if (loginResponse != null) {
         options.headers[authorization] =
             '${loginResponse.tokenScheme} ${loginResponse.token}';

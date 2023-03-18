@@ -254,44 +254,44 @@ class _BrowseFilterScreenState extends State<BrowseFilterScreen> {
                       // ),
 
                       // Authors
-                      createDivider(),
-                      FilterExpandableWidget(
-                        header: 'Authors',
-                        initialExpanded: false,
-                        child: StreamBuilder(
-                          stream: store!.filterDataSubject,
-                          initialData: null,
-                          builder: (
-                            BuildContext context,
-                            AsyncSnapshot snapshot,
-                          ) {
-                            final authors =
-                                store!.filterDataSubject.value.authors;
-                            if (authors == null) {
-                              return const SizedBox();
-                            }
+                      // createDivider(),
+                      // FilterExpandableWidget(
+                      //   header: 'Authors',
+                      //   initialExpanded: false,
+                      //   child: StreamBuilder(
+                      //     stream: store!.filterDataSubject,
+                      //     initialData: null,
+                      //     builder: (
+                      //       BuildContext context,
+                      //       AsyncSnapshot snapshot,
+                      //     ) {
+                      //       final authors =
+                      //           store!.filterDataSubject.value.authors;
+                      //       if (authors == null) {
+                      //         return const SizedBox();
+                      //       }
 
-                            return Wrap(
-                              alignment: WrapAlignment.start,
-                              children: authors.map((f) {
-                                return ChipWidget(
-                                  text: f.name,
-                                  isSelected: f.isSelected,
-                                  onTap: () {
-                                    if (f.isSelected == null) {
-                                      f.isSelected = false;
-                                    }
-                                    f.isSelected = !f.isSelected!;
-                                    store!.filterDataSubject.add(
-                                      store!.filterDataSubject.value,
-                                    );
-                                  },
-                                );
-                              }).toList(),
-                            );
-                          },
-                        ),
-                      ),
+                      //       return Wrap(
+                      //         alignment: WrapAlignment.start,
+                      //         children: authors.map((f) {
+                      //           return ChipWidget(
+                      //             text: f.name,
+                      //             isSelected: f.isSelected,
+                      //             onTap: () {
+                      //               if (f.isSelected == null) {
+                      //                 f.isSelected = false;
+                      //               }
+                      //               f.isSelected = !f.isSelected!;
+                      //               store!.filterDataSubject.add(
+                      //                 store!.filterDataSubject.value,
+                      //               );
+                      //             },
+                      //           );
+                      //         }).toList(),
+                      //       );
+                      //     },
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

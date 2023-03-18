@@ -32,7 +32,7 @@ list_of_author.more: + More
 main_tab.home.title: Home
 main_tab.activities.title: Activities
 main_tab.browse.title: Browse
-main_tab.goals.title: Goals
+main_tab.goals.title: Task
 main_tab.agendas.title: Agendas
 
 settings.title: Settings

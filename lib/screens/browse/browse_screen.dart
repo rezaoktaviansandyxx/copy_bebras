@@ -198,6 +198,7 @@ class _BrowseScreenState extends State<BrowseScreen>
                   style: context.isLight
                       ? TextStyle(
                           color: const Color(0xff00ADEE),
+                          fontWeight: FontWeight.w600,
                         )
                       : null,
                 ),

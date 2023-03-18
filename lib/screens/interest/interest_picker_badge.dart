@@ -63,7 +63,7 @@ class InterestPickerBadge extends StatelessWidget {
                             }
                           })(),
                         ),
-                        child: Image.asset(
+                        child: Image.network(
                           item.iconUrl ?? '',
                           fit: BoxFit.fitHeight,
                         ),

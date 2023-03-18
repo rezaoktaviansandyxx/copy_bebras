@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -12,8 +14,8 @@ import 'package:fluxmobileapp/styles/styles.dart';
 import 'package:fluxmobileapp/utils/theme_extensions.dart';
 import 'package:fluxmobileapp/widgets/curve_widget.dart';
 import 'package:fluxmobileapp/widgets/error_widget.dart';
+import 'package:get/get.dart';
 import 'package:mobx/mobx.dart';
-import 'package:quiver/iterables.dart';
 import './assessment_store.dart';
 
 class AssessmentQuestion extends HookWidget {
@@ -213,6 +215,7 @@ class AssessmentQuestion extends HookWidget {
                       ),
                       Expanded(
                         child: SingleChildScrollView(
+                          physics: ClampingScrollPhysics(),
                           child: SafeArea(
                             top: false,
                             child: Padding(
@@ -242,15 +245,7 @@ class AssessmentQuestion extends HookWidget {
                                           final count = [
                                             splitQuestion.length,
                                             splitImage.length
-                                          ].reduce(
-                                            (max, element) {
-                                              if (max > element) {
-                                                return max;
-                                              } else {
-                                                return element;
-                                              }
-                                            },
-                                          );
+                                          ].reduce(max);
                                           List<Widget> list = [];
                                           for (int i = 0; i < count; i++) {
                                             if (i < splitQuestion.length) {
@@ -262,105 +257,43 @@ class AssessmentQuestion extends HookWidget {
                                             }
                                             if (i < splitImage.length) {
                                               list.add(
-                                                Image.asset(
-                                                  'images/soala/${splitImage[i]}',
-                                                  errorBuilder: (context, error,
-                                                          stackTrace) =>
-                                                      Container(),
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      20 /
-                                                      100,
-                                                ),
-                                              );
-                                            }
-                                            if (i < splitQuestion.length) {
-                                              list.add(
-                                                AppHtml(
-                                                  splitQuestion[i + 1],
-                                                ),
-                                              );
-                                            }
-                                            if (i < splitImage.length) {
-                                              checkedImage.contains("|")
-                                                  ? list.add(
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(top: 10),
-                                                        child: Image.asset(
-                                                          'images/soala/${splitImage[i + 1]}',
-                                                          errorBuilder: (context,
-                                                                  error,
-                                                                  stackTrace) =>
-                                                              Container(),
-                                                          height: MediaQuery.of(
-                                                                      context)
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 5, bottom: 5),
+                                                  child: InteractiveViewer(
+                                                    minScale: 0.1,
+                                                    maxScale: 2.0,
+                                                    child: Image.asset(
+                                                      'images/soala/${splitImage[i]}',
+                                                      errorBuilder: (context,
+                                                              error,
+                                                              stackTrace) =>
+                                                          Container(),
+                                                      height:
+                                                          MediaQuery.of(context)
                                                                   .size
                                                                   .height *
                                                               20 /
                                                               100,
-                                                        ),
-                                                      ),
-                                                    )
-                                                  : Column(
-                                                      children: list,
-                                                    );
-                                            }
-                                            if (list.length > 1) {
-                                              return Column(
-                                                children: list,
+                                                    ),
+                                                  ),
+                                                ),
                                               );
                                             }
                                           }
-                                          return AppHtml(
-                                            store!.currentQuestion!.topic ??
-                                                store!.currentQuestion!.title ??
-                                                '',
-                                          );
-                                          // if (checkedImage.isNotEmpty == true) {
-                                          //   return Column(
-                                          //     children: [
-                                          //       Align(
-                                          //         alignment:
-                                          //             Alignment.centerLeft,
-                                          //         child: AppHtml(
-                                          //           questionsplit[0],
-                                          //         ),
-                                          //       ),
-                                          //       SizedBox(
-                                          //         height: 10,
-                                          //       ),
-                                          //       Image.asset(
-                                          //         'images/soala/$checkedImage',
-                                          //         errorBuilder: (context, error,
-                                          //                 stackTrace) =>
-                                          //             Container(),
-                                          //         height: MediaQuery.of(context)
-                                          //                 .size
-                                          //                 .height *
-                                          //             20 /
-                                          //             100,
-                                          //       ),
-                                          //       SizedBox(
-                                          //         height: 10,
-                                          //       ),
-                                          //       Align(
-                                          //         alignment:
-                                          //             Alignment.centerLeft,
-                                          //         child: AppHtml(
-                                          //           questionsplit[1],
-                                          //         ),
-                                          //       ),
-                                          //     ],
-                                          //   );
-                                          // }
-                                          // AppHtml(
-                                          //   store!.currentQuestion!.topic ??
-                                          //       store!.currentQuestion!.title ??
-                                          //       '',
-                                          // );
+                                          if (list.length > 1) {
+                                            return Column(
+                                              children: list,
+                                            );
+                                          } else {
+                                            return AppHtml(
+                                              store!.currentQuestion!.topic ??
+                                                  store!
+                                                      .currentQuestion!.title ??
+                                                  '',
+                                            );
+                                          }
                                         },
                                       );
                                     },
@@ -662,8 +595,9 @@ class AssessmentQuestion extends HookWidget {
                                                   );
                                                 });
                                             if (sure == true) {
-                                              store!.submitAssessment
-                                                  .executeIf();
+                                              Get.back();
+                                              // store!.submitAssessment
+                                              //     .executeIf();
                                             }
                                           } else {
                                             store!.currentQuestionIndex++;

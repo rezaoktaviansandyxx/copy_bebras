@@ -44,31 +44,31 @@ abstract class _TopicStore extends BaseStore with Store {
         final response = await appClient!.getTopic(
           request,
         );
-        // items.addAll(response.payload!);
-        items.addAll(
-          [
-            TopicItem()
-              ..id = 'sikecil'
-              ..iconUrl = 'images/icons/bebras_icon_sikecil.png'
-              ..color = '#93C6F9'
-              ..name = 'Sikecil',
-            TopicItem()
-              ..id = 'siaga'
-              ..iconUrl = 'images/icons/bebras_icon_siaga.png'
-              ..color = '#81E288'
-              ..name = 'Siaga',
-            TopicItem()
-              ..id = 'penggalang'
-              ..iconUrl = 'images/icons/bebras_icon_penggalang.png'
-              ..color = '#FFC71F'
-              ..name = 'Penggalang',
-            TopicItem()
-              ..id = 'penegak'
-              ..iconUrl = 'images/icons/bebras_icon_penegak.png'
-              ..color = '#EF4D56'
-              ..name = 'Penegak',
-          ],
-        );
+        items.addAll(response.payload!);
+        // items.addAll(
+        //   [
+        // TopicItem()
+        //   ..id = 'sikecil'
+        //   ..iconUrl = 'images/icons/bebras_icon_sikecil.png'
+        //   ..color = '#93C6F9'
+        //   ..name = 'Sikecil',
+        //     TopicItem()
+        //       ..id = 'siaga'
+        //       ..iconUrl = 'images/icons/bebras_icon_siaga.png'
+        //       ..color = '#81E288'
+        //       ..name = 'Siaga',
+        //     TopicItem()
+        //       ..id = 'penggalang'
+        //       ..iconUrl = 'images/icons/bebras_icon_penggalang.png'
+        //       ..color = '#FFC71F'
+        //       ..name = 'Penggalang',
+        //     TopicItem()
+        //       ..id = 'penegak'
+        //       ..iconUrl = 'images/icons/bebras_icon_penegak.png'
+        //       ..color = '#EF4D56'
+        //       ..name = 'Penegak',
+        //   ],
+        // );
 
         state = items.isNotEmpty ? DataState.success : DataState.empty;
         loadMoreState = DataState.none;
