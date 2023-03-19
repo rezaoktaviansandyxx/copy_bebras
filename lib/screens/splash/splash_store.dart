@@ -48,7 +48,7 @@ abstract class _SplashStore extends BaseStore with Store {
 
         String? route;
 
-        await Future.delayed(const Duration(milliseconds: 250));
+        await Future.delayed(const Duration(seconds: 3));
         final loginResponse = await secureStorage!.getLoginResponse();
         final isAuthenticated = loginResponse != null;
         await localization!.loadFromBundle(Locale('en-US'));

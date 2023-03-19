@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluxmobileapp/baselib/app_services.dart';
 import 'package:fluxmobileapp/baselib/localization_service.dart';
 import 'package:fluxmobileapp/screens/get_started/get_started_store.dart';
@@ -107,20 +106,20 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                        Image.asset(
-                                          'images/logo_bebras.png',
-                                          height: 72,
-                                        ),
-                                        // Text(
-                                        //   'Anugra',
-                                        //   style: TextStyle(
-                                        //     color: const Color(0xff0F9EEA),
-                                        //     fontFamily: 'Quicksand',
-                                        //     fontWeight: FontWeight.bold,
-                                        //     fontSize: 38,
-                                        //   ),
-                                        // ),
-                                        ],
+                                            Image.asset(
+                                              'images/logo_bebras.png',
+                                              height: 72,
+                                            ),
+                                            // Text(
+                                            //   'Anugra',
+                                            //   style: TextStyle(
+                                            //     color: const Color(0xff0F9EEA),
+                                            //     fontFamily: 'Quicksand',
+                                            //     fontWeight: FontWeight.bold,
+                                            //     fontSize: 38,
+                                            //   ),
+                                            // ),
+                                          ],
                                         ),
                                       ),
                                     ],
@@ -129,66 +128,77 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                               ),
                               clipper: CurveClipper(),
                             ),
-                            Text(
-                              e.title,
-                              style: TextStyle(
-                                fontFamily: 'Quicksand',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 33,
-                                color: Colors.black,
-                                // AppTheme.of(context)
-                                //     .getStartedColor
-                                //     ?.titleColor,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            const SizedBox(
-                              height: 12,
-                            ),
-                            Text(
-                              e.description,
-                              style: TextStyle(
-                                fontSize:
-                                    FontSizesWidget.of(context)!.semiLarge,
-                                    fontWeight: FontWeight.w500,
-                                color: Colors.black,
-                                // AppTheme.of(context)
-                                //         .getStartedColor
-                                //         ?.subtitleColor ??
-                                //     AppTheme.of(context).sectionTitle.color,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              e.subtitle,
-                              style: TextStyle(
-                                fontSize:
-                                    FontSizesWidget.of(context)!.regular,
-                                color: 
-                                Colors.black,
-                                // AppTheme.of(context)
-                                //         .getStartedColor
-                                //         ?.subtitleColor ??
-                                //     AppTheme.of(context).sectionTitle.color,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 20,
+                              padding: const EdgeInsets.only(
+                                left: 10.0,
+                                right: 10.0,
                               ),
-                              child: Image.asset(
-                                e.imagePath,
-                                height: MediaQuery.of(context).size.height *
-                                    35 /
-                                    100,
-                                width: MediaQuery.of(context).size.width,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    e.title,
+                                    style: TextStyle(
+                                      fontFamily: 'Quicksand',
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 33,
+                                      color: Colors.black,
+                                      // AppTheme.of(context)
+                                      //     .getStartedColor
+                                      //     ?.titleColor,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  const SizedBox(
+                                    height: 12,
+                                  ),
+                                  Text(
+                                    e.description,
+                                    style: TextStyle(
+                                      fontSize: FontSizesWidget.of(context)!
+                                          .semiLarge,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                      // AppTheme.of(context)
+                                      //         .getStartedColor
+                                      //         ?.subtitleColor ??
+                                      //     AppTheme.of(context).sectionTitle.color,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    e.subtitle,
+                                    style: TextStyle(
+                                      fontSize:
+                                          FontSizesWidget.of(context)!.regular,
+                                      color: Colors.black,
+                                      // AppTheme.of(context)
+                                      //         .getStartedColor
+                                      //         ?.subtitleColor ??
+                                      //     AppTheme.of(context).sectionTitle.color,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 20,
+                                    ),
+                                    child: Image.asset(
+                                      e.imagePath,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              35 /
+                                              100,
+                                      width: MediaQuery.of(context).size.width,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -267,106 +277,107 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                                 ),
                               ),
                               if (store.isLastPageIndex != true)
-                              TextButton(
-                                onPressed: () {
-                                  store.skip.executeIf();
-                                },
-                                child: Text(
-                                  'Lewati',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600
-                                    // color: AppTheme.of(context)
-                                    //         .getStartedColor
-                                    //         ?.button1 ??
-                                    //     Theme.of(context).accentColor,
+                                TextButton(
+                                  onPressed: () {
+                                    store.skip.executeIf();
+                                  },
+                                  child: Text(
+                                    'Lewati',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600
+                                        // color: AppTheme.of(context)
+                                        //         .getStartedColor
+                                        //         ?.button1 ??
+                                        //     Theme.of(context).accentColor,
+                                        ),
+                                  ),
+                                  style: TextButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
                                 ),
-                                style: TextButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                              ),
                               Expanded(
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     store.isLastPageIndex
-                                        ?
-                                    TextButton(
-                                      onPressed: () {
-                                        Get.toNamed('/login',
-                                            arguments: {'pageIndex': 0});
-                                      },
-                                      child: Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 10),
-                                        child: Text(
-                                          'Masuk',
-                                          style: Theme.of(context).brightness ==
-                                                  Brightness.light
-                                              ? TextStyle(color: Colors.white
-                                                  // AppTheme.of(context)
-                                                  //     .getStartedColor
-                                                  //     ?.subtitleColor,
-                                                  )
-                                              : null,
-                                        ),
-                                      ),
-                                      style: TextButton.styleFrom(
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          backgroundColor: Colors.blue
-                                          // Theme.of(context)
-                                          //             .brightness ==
-                                          //         Brightness.dark
-                                          //     ? Theme.of(context)
-                                          //         .accentColor
-                                          //     : Colors.white,
-                                          ),
-                                    )
-                                    : TextButton(
-                                        onPressed: () {
-                                          store.next.executeIf();
-                                        },
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Text(
-                                              'Lanjut',
-                                              style: AppTheme.of(context)
-                                                          .getStartedColor
-                                                          ?.button2 !=
-                                                      null
-                                                  ? TextStyle(
-                                                      color: AppTheme.of(
-                                                              context)
-                                                          .getStartedColor
-                                                          ?.button2,
-                                                    )
-                                                  : null,
+                                        ? TextButton(
+                                            onPressed: () {
+                                              Get.toNamed('/login',
+                                                  arguments: {'pageIndex': 0});
+                                            },
+                                            child: Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 10),
+                                              child: Text(
+                                                'Masuk',
+                                                style: Theme.of(context)
+                                                            .brightness ==
+                                                        Brightness.light
+                                                    ? TextStyle(
+                                                        color: Colors.white
+                                                        // AppTheme.of(context)
+                                                        //     .getStartedColor
+                                                        //     ?.subtitleColor,
+                                                        )
+                                                    : null,
+                                              ),
                                             ),
-                                            const SizedBox(
-                                              width: 8,
+                                            style: TextButton.styleFrom(
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                ),
+                                                backgroundColor: Colors.blue
+                                                // Theme.of(context)
+                                                //             .brightness ==
+                                                //         Brightness.dark
+                                                //     ? Theme.of(context)
+                                                //         .accentColor
+                                                //     : Colors.white,
+                                                ),
+                                          )
+                                        : TextButton(
+                                            onPressed: () {
+                                              store.next.executeIf();
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Text(
+                                                  'Lanjut',
+                                                  style: AppTheme.of(context)
+                                                              .getStartedColor
+                                                              ?.button2 !=
+                                                          null
+                                                      ? TextStyle(
+                                                          color: AppTheme.of(
+                                                                  context)
+                                                              .getStartedColor
+                                                              ?.button2,
+                                                        )
+                                                      : null,
+                                                ),
+                                                const SizedBox(
+                                                  width: 8,
+                                                ),
+                                                Icon(
+                                                  Icons.arrow_forward,
+                                                  color: AppTheme.of(context)
+                                                      .getStartedColor
+                                                      ?.button2,
+                                                ),
+                                              ],
                                             ),
-                                            Icon(
-                                              Icons.arrow_forward,
-                                              color: AppTheme.of(context)
-                                                  .getStartedColor
-                                                  ?.button2,
+                                            style: TextButton.styleFrom(
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
                                             ),
-                                          ],
-                                        ),
-                                        style: TextButton.styleFrom(
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
                                           ),
-                                        ),
-                                      ),
                                   ],
                                 ),
                               ),
