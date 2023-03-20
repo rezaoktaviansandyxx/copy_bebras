@@ -60,7 +60,7 @@ abstract class _UserProfileStore extends BaseStore with Store {
         // await firebaseMessagingInstance!.deleteToken();
         await secureStorage!.removeAll();
         appServices!.navigatorState!.pushNamedAndRemoveUntil(
-          '/',
+          '/splash_screen',
           (_) => false,
         );
       } catch (error) {
@@ -98,7 +98,7 @@ abstract class _UserProfileStore extends BaseStore with Store {
           }
 
           appServices!.navigatorState!.pushNamedAndRemoveUntil(
-            '/',
+            '/splash_screen',
             (route) => false,
           );
         }

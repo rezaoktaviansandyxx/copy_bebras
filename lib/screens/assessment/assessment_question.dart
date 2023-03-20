@@ -9,6 +9,7 @@ import 'package:fluxmobileapp/baselib/disposable.dart';
 import 'package:fluxmobileapp/baselib/widgets.dart';
 import 'package:fluxmobileapp/components/app_html.dart';
 import 'package:fluxmobileapp/screens/assessment/assessment_result_screen.dart';
+import 'package:fluxmobileapp/screens/assessment/assessment_result_screenV2.dart';
 import 'package:fluxmobileapp/services/secure_storage.dart';
 import 'package:fluxmobileapp/styles/styles.dart';
 import 'package:fluxmobileapp/utils/theme_extensions.dart';
@@ -595,7 +596,8 @@ class AssessmentQuestion extends HookWidget {
                                                   );
                                                 });
                                             if (sure == true) {
-                                              Get.back();
+                                              Get.offAll(
+                                                  SplashScreeenAssessment());
                                               // store!.submitAssessment
                                               //     .executeIf();
                                             }

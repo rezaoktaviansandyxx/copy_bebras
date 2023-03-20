@@ -20,6 +20,7 @@ import 'package:fluxmobileapp/screens/get_started/get_started_store.dart';
 import 'package:fluxmobileapp/screens/goals/goals_store.dart';
 import 'package:fluxmobileapp/screens/goals_create/goals_create_screen.dart';
 import 'package:fluxmobileapp/screens/profile/user_profile_screen.dart';
+import 'package:fluxmobileapp/screens/splash/splash_screen_first.dart';
 import 'package:fluxmobileapp/screens/todo_detail/todo_detail_screen.dart';
 import 'package:fluxmobileapp/term_condition/term_condition_screen.dart';
 import 'package:fluxmobileapp/screens/assessment/assessment_chart.dart';
@@ -229,7 +230,8 @@ class MyApp extends StatelessWidget {
     final theme = lightTheme;
 
     final routes = {
-      '/': (context, dynamic args) => SplashScreen(),
+      '/': (context, dynamic args) => SplashScreenV2(),
+      '/splash_screen':(context, dynamic args) => SplashScreen(),
       '/get_started': (context, dynamic args) => GetStartedScreen(),
       '/login': (context, dynamic args) => LoginScreen(),
       '/main': (context, dynamic args) => MainTabScreen(),

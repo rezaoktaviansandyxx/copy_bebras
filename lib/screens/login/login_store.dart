@@ -129,7 +129,7 @@ abstract class _LoginStore extends BaseStore with Store {
         await secureStorage.setLoginResponse(loginPayload);
 
         await appServices!.navigatorState!.pushNamedAndRemoveUntil(
-          '/',
+          '/splash_screen',
           (_) => false,
         );
       } catch (error) {
@@ -333,7 +333,7 @@ abstract class _RegistrationStore extends BaseStore with Store {
           );
         } else {
           // appServices.navigatorState!.pushNamed('/');
-          Get.toNamed('/');
+          Get.toNamed('/splash_screen');
         }
       } catch (error) {
         final message = getErrorMessage(error);

@@ -35,20 +35,10 @@ class _SplashScreenState extends State<SplashScreen> {
               selectedState: store.dataState,
               states: {
                 [DataState.loading]: Container(
-                  color: Color(0XFF00ADEE).withOpacity(0.5),
-                  child: Center(
-                    child: Image.asset(
-                      'images/maskot_bebras.png',
-                      fit: BoxFit.fitWidth,
-                      height: MediaQuery.of(context).size.height * 45 / 100,
-                    ),
+                  child: const Center(
+                    child: const CircularProgressIndicator(),
                   ),
                 ),
-                // Container(
-                //   child: const Center(
-                //     child: const CircularProgressIndicator(),
-                //   ),
-                // ),
                 [DataState.error]: Container(
                   child: Center(
                     child: ErrorDataWidget(
