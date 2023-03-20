@@ -596,8 +596,11 @@ class AssessmentQuestion extends HookWidget {
                                                   );
                                                 });
                                             if (sure == true) {
-                                              Get.offAll(
-                                                  SplashScreeenAssessment());
+                                              Get.off(
+                                                SplashScreeenAssessment(
+                                                  assessment: store!.assessment,
+                                                ),
+                                              );
                                               // store!.submitAssessment
                                               //     .executeIf();
                                             }
