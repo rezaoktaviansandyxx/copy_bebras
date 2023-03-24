@@ -160,18 +160,21 @@ class _AgendasScreenState extends State<AgendasScreen>
               localization!.getByKey(
                 'agendas.title',
               ),
-              style: context.isLight
-                  ? TextStyle(
-                      color: Colors.white,
-                    )
-                  : null,
+              style: TextStyle(
+                color: Color(0XFF00ADEE),
+              ),
+              // context.isLight
+              //     ? TextStyle(
+              //         color: Colors.white,
+              //       )
+              //     : null,
             ),
             centerTitle: false,
             actions: <Widget>[
               IconButton(
                 icon: Icon(
-                  Icons.add,
-                  color: context.isLight ? Colors.white : null,
+                  Icons.add_circle_outline_rounded, color: Colors.red,
+                  // context.isLight ? Colors.white : null,
                 ),
                 onPressed: () async {
                   if (store.goals.isEmpty) {

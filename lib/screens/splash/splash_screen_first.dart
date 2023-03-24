@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:fluxmobileapp/screens/splash/splash_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class SplashScreenV2 extends StatefulWidget {
@@ -35,8 +35,8 @@ class _SplashScreenV2State extends State<SplashScreenV2> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(
-                'images/maskot_bebras.png',
+              SvgPicture.asset(
+                'images/maskot_bebras.svg',
                 fit: BoxFit.fitWidth,
                 height: MediaQuery.of(context).size.height * 45 / 100,
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluxmobileapp/baselib/disposable.dart';
 import 'package:fluxmobileapp/baselib/widgets.dart';
 import 'package:fluxmobileapp/stores/user_profile_store.dart';
@@ -89,9 +90,9 @@ class _UserForgotPasswordScreenState extends State<UserForgotPasswordScreen> {
             padding: const EdgeInsets.only(
               top: 30.0,
             ),
-            child: Image.asset(
-              'images/logo_bebras.png',
-              height: 72,
+            child: SvgPicture.asset(
+              'images/logo_bebras.svg',
+              height: 70,
             ),
           ),
         ),
@@ -120,10 +121,11 @@ class _UserForgotPasswordScreenState extends State<UserForgotPasswordScreen> {
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 20,
                               ),
-                              child: Image.asset(
-                                'images/maskot_bebras.png',
-                                height:
-                                    MediaQuery.of(context).size.height * 35 / 100,
+                              child: SvgPicture.asset(
+                                'images/maskot_bebras.svg',
+                                height: MediaQuery.of(context).size.height *
+                                    35 /
+                                    100,
                               ),
                             ),
                           ),
@@ -134,7 +136,8 @@ class _UserForgotPasswordScreenState extends State<UserForgotPasswordScreen> {
                             Expanded(
                               child: SingleChildScrollView(
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
                                   children: <Widget>[
                                     SizedBox(
                                       height: 105.0,
@@ -147,7 +150,8 @@ class _UserForgotPasswordScreenState extends State<UserForgotPasswordScreen> {
                                           builder: (BuildContext context) {
                                             return TextFormField(
                                               onChanged: (v) {
-                                                profileStore.forgotPasswordEmail =
+                                                profileStore
+                                                        .forgotPasswordEmail =
                                                     v.trim();
                                               },
                                               autocorrect: false,
@@ -174,7 +178,8 @@ class _UserForgotPasswordScreenState extends State<UserForgotPasswordScreen> {
                                       builder: (BuildContext context) {
                                         return TextButton(
                                           onPressed: () {
-                                            profileStore.forgotPassword.executeIf();
+                                            profileStore.forgotPassword
+                                                .executeIf();
                                           },
                                           child: Text(
                                             'Kirim',

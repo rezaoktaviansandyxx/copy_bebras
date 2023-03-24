@@ -340,7 +340,7 @@ class _TodoAddScreenState extends State<TodoAddScreen>
                                 ),
                               ),
                               child: Text(
-                                'Cancel',
+                                'Batal',
                                 style: TextStyle(
                                   color: Theme.of(context).iconTheme.color,
                                   fontFamily: 'Quicksand',
@@ -373,7 +373,7 @@ class _TodoAddScreenState extends State<TodoAddScreen>
                                     : const Color(0xff5AD57F),
                               ),
                               child: Text(
-                                'Add',
+                                'Terapkan',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: 'Quicksand',

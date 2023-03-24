@@ -320,12 +320,10 @@ class _HomeScreenState extends State<HomeScreen>
                                           left: 0,
                                           right: 0,
                                           bottom: -55,
-                                          child: Align(
+                                          child: SvgPicture.asset(
+                                            'images/maskot_bebras.svg',
+                                            fit: BoxFit.contain,
                                             alignment: Alignment.centerRight,
-                                            child: Image.asset(
-                                              'images/maskot_bebras.png',
-                                              fit: BoxFit.contain,
-                                            ),
                                           ),
                                         ),
                                       ],

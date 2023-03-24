@@ -48,23 +48,23 @@ class _GoalsScreen extends State<GoalsScreen>
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final tabStore = Provider.of<MainTabStore>(
-        context,
-        listen: false,
-      );
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   final tabStore = Provider.of<MainTabStore>(
+    //     context,
+    //     listen: false,
+    //   );
 
-      {
-        final d = tabStore.tabIndex.listen((e) {
-          if (e == 3) {
-            store.dataRefresher.add(null);
-          }
-        });
-        store.registerDispose(() {
-          d.cancel();
-        });
-      }
-    });
+    //   {
+    //     final d = tabStore.tabIndex.listen((e) {
+    //       if (e == 2) {
+    //         store.dataRefresher.add(null);
+    //       }
+    //     });
+    //     store.registerDispose(() {
+    //       d.cancel();
+    //     });
+    //   }
+    // });
   }
 
   @override
@@ -94,12 +94,15 @@ class _GoalsScreen extends State<GoalsScreen>
               appBar: AppBar(
                 backgroundColor: context.isLight ? Colors.transparent : null,
                 title: Text(
-                  'Goals',
-                  style: context.isLight
-                      ? TextStyle(
-                          color: const Color(0xffF3F8FF),
-                        )
-                      : null,
+                  'Task',
+                  style: TextStyle(
+                    color: Color(0XFF00ADEE),
+                  ),
+                  // context.isLight
+                  //     ? TextStyle(
+                  //         color: const Color(0xffF3F8FF),
+                  //       )
+                  //     : null,
                 ),
                 centerTitle: false,
                 actions: <Widget>[
@@ -108,16 +111,16 @@ class _GoalsScreen extends State<GoalsScreen>
                     store: store.tutorialWalkthroughStore,
                     child: IconButton(
                       icon: Icon(
-                        Icons.add,
-                        color: context.isLight ? Colors.white : null,
+                        Icons.add_circle_outline_outlined,
+                        color: Colors.red
+                        // context.isLight ? Colors.white : null,
                       ),
                       onPressed: () async {
-                        final id =
-                            await Get.toNamed('/add_goals')
-                          //   appServices!.navigatorState!.pushNamed(
-                          // '/add_goals',
-                        // ) 
-                        as BaseResponse<String?>;
+                        final id = await Get.toNamed('/add_goals')
+                            //   appServices!.navigatorState!.pushNamed(
+                            // '/add_goals',
+                            // )
+                            as BaseResponse<String?>;
                         if (id != null) {
                           if (id.payload != null) {
                             store.lastAddedGoalId = id.payload;
@@ -350,7 +353,7 @@ class _GoalsTabContentWidgetState extends State<GoalsTabContentWidget>
               [DataState.success]: SmartRefresher(
                 controller: RefreshController(),
                 onRefresh: () {
-                  store.dataRefresher.add(null);
+                  // store.dataRefresher.add(null);
                 },
                 child: Observer(
                   builder: (BuildContext context) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluxmobileapp/utils/theme_extensions.dart';
 
 class FluxAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -23,8 +24,8 @@ class FluxAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         child: Row(
           children: [
-            Image.asset(
-              'images/logo_bebras.png',
+            SvgPicture.asset(
+              'images/logo_bebras.svg',
               height: kToolbarHeight - 15,
             ),
             // const SizedBox(

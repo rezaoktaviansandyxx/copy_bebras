@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluxmobileapp/api_services/api_services_models.dart';
 import 'package:fluxmobileapp/appsettings.dart';
 import 'package:fluxmobileapp/baselib/disposable.dart';
@@ -265,12 +266,8 @@ class AssessmentQuestion extends HookWidget {
                                                   child: InteractiveViewer(
                                                     minScale: 0.1,
                                                     maxScale: 2.0,
-                                                    child: Image.asset(
-                                                      'images/soala/${splitImage[i]}.png',
-                                                      errorBuilder: (context,
-                                                              error,
-                                                              stackTrace) =>
-                                                          Container(),
+                                                    child: SvgPicture.asset(
+                                                      'images/soala/${splitImage[i]}.svg',
                                                       height:
                                                           MediaQuery.of(context)
                                                                   .size
@@ -450,13 +447,9 @@ class AssessmentQuestion extends HookWidget {
                                                                   alignment:
                                                                       Alignment
                                                                           .center,
-                                                                  child: Image
+                                                                  child: SvgPicture
                                                                       .asset(
-                                                                    'images/soala/${item.imageUrl}.png',
-                                                                    errorBuilder: (context,
-                                                                            error,
-                                                                            stackTrace) =>
-                                                                        Container(),
+                                                                    'images/soala/${item.imageUrl}.svg',
                                                                     height: MediaQuery.of(context)
                                                                             .size
                                                                             .height *

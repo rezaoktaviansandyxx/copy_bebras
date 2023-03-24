@@ -115,9 +115,10 @@ class _CalendarHorizontalState extends State<CalendarHorizontal> {
                         DateFormat('MMMM yyyy').format(date),
                         style: TextStyle(
                           fontSize: FontSizesWidget.of(context)!.large,
-                          color: context.isLight
-                              ? Colors.white
-                              : Theme.of(context).accentColor,
+                          color: Color(0XFF00ADEE),
+                          // context.isLight
+                          //     ? Colors.white
+                          //     : Theme.of(context).accentColor,
                           fontWeight: FontWeight.w500,
                         ),
                       );
@@ -129,9 +130,10 @@ class _CalendarHorizontalState extends State<CalendarHorizontal> {
                   Icon(
                     FontAwesomeIcons.chevronDown,
                     size: 14,
-                    color: context.isLight
-                        ? Colors.white
-                        : Theme.of(context).accentColor,
+                    color: Color(0XFF00ADEE),
+                    // context.isLight
+                    //     ? Colors.white
+                    //     : Theme.of(context).accentColor,
                   ),
                 ],
               ),
@@ -139,7 +141,8 @@ class _CalendarHorizontalState extends State<CalendarHorizontal> {
             IconButton(
               icon: Icon(
                 Icons.refresh,
-                color: context.isLight ? Colors.white : null,
+                color: Color(0XFF00ADEE),
+                // context.isLight ? Colors.white : null,
               ),
               onPressed: () async {
                 date.add(getDateOnly(DateTime.now()));

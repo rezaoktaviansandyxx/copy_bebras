@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluxmobileapp/api_services/api_services_models.dart';
 import 'package:fluxmobileapp/widgets/curve_widget.dart';
 import 'package:get/get.dart';
@@ -53,8 +54,8 @@ class SplashScreeenAssessment extends HookWidget {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 10 / 100,
                       ),
-                      Image.asset(
-                        'images/bebras/bebras_result.png',
+                      SvgPicture.asset(
+                        'images/bebras/bebras_result.svg',
                         fit: BoxFit.contain,
                         alignment: Alignment.center,
                         height: MediaQuery.of(context).size.height * 35 / 100,
@@ -63,7 +64,7 @@ class SplashScreeenAssessment extends HookWidget {
                         height: 10,
                       ),
                       Text(
-                        '${(assessment!.totalScore / 6 * 100).toStringAsFixed(0)}',
+                        '${(assessment!.totalScore / assessment!.questions!.length * 100).toStringAsFixed(0)}',
                         style: TextStyle(
                           fontSize: 30,
                           color: Color(0XFF00ADEE),

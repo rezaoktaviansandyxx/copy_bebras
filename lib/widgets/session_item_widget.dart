@@ -62,43 +62,58 @@ class SessionItemWidget extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Positioned.fill(
-                    child: Image.asset(
-                  item.imageThumbnail ?? '',
-                  fit: BoxFit.cover,
-                  alignment: Alignment.center,
-                  errorBuilder: (context, url, v) {
-                        return Container(
-                          color: Theme.of(context).inputDecorationTheme.fillColor,
-                          child: Center(
-                            child: Icon(
-                              Icons.broken_image,
+                  child: Image.asset(
+                    item.imageThumbnail ?? '',
+                    fit: BoxFit.cover,
+                    alignment: Alignment.center,
+                    errorBuilder: (context, url, v) {
+                      return CachedNetworkImage(
+                        imageUrl: item.imageThumbnail ?? '',
+                        fit: BoxFit.cover,
+                        alignment: Alignment.center,
+                        placeholder: (c, url) {
+                          return Align(
+                            alignment: Alignment.center,
+                            child: CircularProgressIndicator(),
+                          );
+                        },
+                        errorWidget: (context, url, v) {
+                          return Container(
+                            color: Theme.of(context)
+                                .inputDecorationTheme
+                                .fillColor,
+                            child: Center(
+                              child: Icon(
+                                Icons.broken_image,
+                              ),
                             ),
-                          ),
-                        );
-                      },
-                )
-                    // CachedNetworkImage(
-                    //   imageUrl: item.imageThumbnail ?? '',
-                    //   fit: BoxFit.cover,
-                    //   alignment: Alignment.center,
-                    //   placeholder: (c, url) {
-                    //     return Align(
-                    //       alignment: Alignment.center,
-                    //       child: CircularProgressIndicator(),
-                    //     );
-                    //   },
-                      // errorWidget: (context, url, v) {
-                      //   return Container(
-                      //     color: Theme.of(context).inputDecorationTheme.fillColor,
-                      //     child: Center(
-                      //       child: Icon(
-                      //         Icons.broken_image,
-                      //       ),
-                      //     ),
-                      //   );
-                      // },
-                    // ),
-                    ),
+                          );
+                        },
+                      );
+                    },
+                  ),
+                  //     CachedNetworkImage(
+                  //   imageUrl: item.imageThumbnail ?? '',
+                  //   fit: BoxFit.cover,
+                  //   alignment: Alignment.center,
+                  //   placeholder: (c, url) {
+                  //     return Align(
+                  //       alignment: Alignment.center,
+                  //       child: CircularProgressIndicator(),
+                  //     );
+                  //   },
+                  //   errorWidget: (context, url, v) {
+                  //     return Container(
+                  //       color: Theme.of(context).inputDecorationTheme.fillColor,
+                  //       child: Center(
+                  //         child: Icon(
+                  //           Icons.broken_image,
+                  //         ),
+                  //       ),
+                  //     );
+                  //   },
+                  // ),
+                ),
                 Positioned(
                   top: 8,
                   right: 8,

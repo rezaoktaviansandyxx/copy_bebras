@@ -20,7 +20,7 @@ class MainTabStore extends BaseStore {
           final appServices = sl.get<AppServices>();
           final model = NotificationModel.fromJson(v!);
           if (appServices?.navigatorState == null) {
-            logger.i('navigatostate is null');
+            logger.i('navigatestate is null');
             return Future.value(null);
           }
 

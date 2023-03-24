@@ -1,6 +1,6 @@
-# Flux
+# Bebras Indonesia
 
-Flux project
+Bebras Indonesia Application
 
 ## Building
 

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluxmobileapp/baselib/app_services.dart';
 import 'package:fluxmobileapp/baselib/localization_service.dart';
 import 'package:fluxmobileapp/screens/get_started/get_started_store.dart';
@@ -106,8 +107,8 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            Image.asset(
-                                              'images/logo_bebras.png',
+                                            SvgPicture.asset(
+                                              'images/logo_bebras.svg',
                                               height: 72,
                                             ),
                                             // Text(
@@ -189,7 +190,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                                     padding: const EdgeInsets.symmetric(
                                       horizontal: 20,
                                     ),
-                                    child: Image.asset(
+                                    child: SvgPicture.asset(
                                       e.imagePath,
                                       height:
                                           MediaQuery.of(context).size.height *
@@ -209,27 +210,27 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 },
               ),
             ),
-            Align(
-              alignment: Alignment.center,
-              child: SmoothPageIndicator(
-                controller: pageController,
-                count: store.pages.length,
-                effect: SlideEffect(
-                  dotHeight: 12,
-                  dotWidth: 12,
-                  activeDotColor: Theme.of(context).accentColor,
-                ),
-                // effect: WormEffect(),
-              ),
-            ),
             SafeArea(
               child: Container(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 15,
+                  vertical: 10,
                   horizontal: 10,
                 ),
                 child: Column(
                   children: <Widget>[
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: SmoothPageIndicator(
+                        controller: pageController,
+                        count: store.pages.length,
+                        effect: SlideEffect(
+                          dotHeight: 12,
+                          dotWidth: 12,
+                          activeDotColor: Theme.of(context).accentColor,
+                        ),
+                        // effect: WormEffect(),
+                      ),
+                    ),
                     ButtonTheme(
                       minWidth: 1,
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,

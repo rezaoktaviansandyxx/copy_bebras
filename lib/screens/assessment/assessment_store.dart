@@ -88,7 +88,7 @@ abstract class _AssessmentStore extends BaseStore with Store {
           userProfile = _userProfile.payload;
         }
 
-        goToAssessment(0);
+        goToAssessment(3);
         appServices!.navigatorState!.pushReplacementNamed(
           '/assessment_question',
           arguments: {'store': this},

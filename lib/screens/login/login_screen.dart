@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -65,11 +66,11 @@ class _LoginScreenState extends State<LoginScreen> {
     changeTitle(double? pageIndex) {
       if (pageIndex == 0) {
         // titleStream.add('Sign in');
-        titleStream.add('images/logo_bebras.png');
+        titleStream.add('images/logo_bebras.svg');
       } else {
         // titleStream.add('Register');
         // titleStream.add('Company sign in');
-        titleStream.add('images/logo_bebras.png');
+        titleStream.add('images/logo_bebras.svg');
       }
     }
 
@@ -135,6 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       borderSide: BorderSide.none,
     );
+    var heightScreen = MediaQuery.of(context).size.height;
 
     final content = SafeArea(
       top: false,
@@ -167,21 +169,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   painter: CurveWidget(
                     color: Color(0XFF00ADEE).withOpacity(0.25),
                     // Theme.of(context).appBarTheme.color,
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.bottomCenter,
-                  padding: EdgeInsets.only(
-                    top: 30.0,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        titleStream.value,
-                        height: 72,
-                      ),
-                    ],
                   ),
                 ),
                 AppBar(
@@ -226,7 +213,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                     },
                   ),
-                )
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(
+                    top: 30.0,
+                  ),
+                  child: SvgPicture.asset(
+                    titleStream.value,
+                    height: 70,
+                    alignment: Alignment.center,
+                  ),
+                ),
               ],
             ),
             Expanded(
@@ -260,8 +258,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                         padding: const EdgeInsets.symmetric(
                                           horizontal: 20,
                                         ),
-                                        child: Image.asset(
-                                          'images/maskot_bebras.png',
+                                        child: SvgPicture.asset(
+                                          'images/maskot_bebras.svg',
                                           height: MediaQuery.of(context)
                                                   .size
                                                   .height *
@@ -489,45 +487,82 @@ class _LoginScreenState extends State<LoginScreen> {
                                               SizedBox(
                                                 height: 20.0,
                                               ),
-                                              TextButton(
-                                                onPressed: () {
-                                                  var _text =
-                                                      urlCompanyController.text
-                                                          .trim();
-                                                  if (isBlank(_text)) {
-                                                    pageViewController!
-                                                        .jumpToPage(1);
-                                                    return;
-                                                  }
-                                                  // Navigator.of(context).push(
-                                                  //     MaterialPageRoute(builder:
-                                                  //         (BuildContext context) {
-                                                  //   return UserForgotPasswordScreen();
-                                                  // }));
-                                                },
-                                                child: Text(
-                                                  // 'Forgot password?',
-                                                  'Belum punya akun? Daftar',
-                                                  style: TextStyle(
-                                                    decoration: TextDecoration
-                                                        .underline,
-                                                    fontFamily: 'Rubik',
-                                                    color: Colors.blue,
-                                                    // context.isDark
-                                                    //     ? Theme.of(context)
-                                                    //         .iconTheme
-                                                    //         .color
-                                                    //     : const Color(0xffE3E3E3),
+
+                                              // TextButton(
+                                              //   onPressed: () {
+                                              //     var _text =
+                                              //         urlCompanyController.text
+                                              //             .trim();
+                                              //     if (isBlank(_text)) {
+                                              //       pageViewController!
+                                              //           .jumpToPage(1);
+                                              //       return;
+                                              //     }
+                                              // Navigator.of(context).push(
+                                              //     MaterialPageRoute(builder:
+                                              //         (BuildContext context) {
+                                              //   return UserForgotPasswordScreen();
+                                              // }));
+                                              //   },
+                                              //   child: 
+                                                Center(
+                                                  child: RichText(
+                                                    text: TextSpan(
+                                                      text: 'Belum punya akun? ',
+                                                      style: TextStyle(
+                                                        fontFamily: 'Rubik',
+                                                        color: Colors.black,
+                                                      ),
+                                                      children: [
+                                                        TextSpan(
+                                                            text: 'Daftar',
+                                                            style: TextStyle(
+                                                              decoration:
+                                                                  TextDecoration
+                                                                      .underline,
+                                                              color: Colors.blue,
+                                                              fontFamily: 'Rubik',
+                                                            ),
+                                                            recognizer:
+                                                                TapGestureRecognizer()
+                                                                  ..onTap = () {
+                                                                    var _text =
+                                                                        urlCompanyController
+                                                                            .text
+                                                                            .trim();
+                                                                    if (isBlank(
+                                                                        _text)) {
+                                                                      pageViewController!
+                                                                          .jumpToPage(
+                                                                              1);
+                                                                      return;
+                                                                    }
+                                                                  }),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                                style: TextButton.styleFrom(
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                  ),
-                                                ),
-                                              ),
+                                                // child: Text(
+                                                //   // 'Forgot password?',
+                                                //   style: TextStyle(
+                                                //     decoration: TextDecoration
+                                                //         .underline,
+                                                //     fontFamily: 'Rubik',
+                                                //     color: context.isDark
+                                                //     ? Theme.of(context)
+                                                //         .iconTheme
+                                                //         .color
+                                                //     : const Color(0xffE3E3E3),
+                                                //   ),
+                                                // ),
+                                              //   style: TextButton.styleFrom(
+                                              //     shape: RoundedRectangleBorder(
+                                              //       borderRadius:
+                                              //           BorderRadius.circular(
+                                              //               10),
+                                              //     ),
+                                              //   ),
+                                              // ),
                                               SizedBox(
                                                 height: 10.0,
                                               ),
@@ -641,8 +676,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                         padding: const EdgeInsets.symmetric(
                                           horizontal: 20,
                                         ),
-                                        child: Image.asset(
-                                          'images/maskot_bebras.png',
+                                        child: SvgPicture.asset(
+                                          'images/maskot_bebras.svg',
                                           height: MediaQuery.of(context)
                                                   .size
                                                   .height *
@@ -653,7 +688,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
                                     children: [
                                       Expanded(
                                         child: SingleChildScrollView(
@@ -673,16 +709,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   //         .iconTheme
                                                   //         .color
                                                   //     : const Color(0xffF3F8FF),
-                                                  fontSize:
-                                                      FontSizesWidget.of(context)!
-                                                          .regular,
+                                                  fontSize: FontSizesWidget.of(
+                                                          context)!
+                                                      .regular,
                                                 ),
                                               ),
                                               SizedBox(
                                                 height: 20,
                                               ),
                                               Builder(
-                                                builder: (BuildContext context) {
+                                                builder:
+                                                    (BuildContext context) {
                                                   final initialValue =
                                                       registrationStore
                                                           .fullname.value;
@@ -691,16 +728,20 @@ class _LoginScreenState extends State<LoginScreen> {
                                                         (BuildContext context) {
                                                       return TextFormField(
                                                         autocorrect: false,
-                                                        initialValue: initialValue,
+                                                        initialValue:
+                                                            initialValue,
                                                         onChanged: (v) {
-                                                          registrationStore.fullname
+                                                          registrationStore
+                                                              .fullname
                                                               .value = v.trim();
                                                         },
-                                                        decoration: InputDecoration(
+                                                        decoration:
+                                                            InputDecoration(
                                                           border: inputBorder,
                                                           errorText:
                                                               registrationStore
-                                                                  .fullname.error,
+                                                                  .fullname
+                                                                  .error,
                                                           // prefixIcon: Container(
                                                           //   width: 50,
                                                           //   height: 50,
@@ -712,8 +753,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                                           //             .color,
                                                           //   ),
                                                           // ),
-                                                          hintText: localization!
-                                                              .getByKey(
+                                                          hintText:
+                                                              localization!
+                                                                  .getByKey(
                                                             'login.placeholder.fullname',
                                                           ),
                                                         ),
@@ -737,29 +779,34 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   //         .iconTheme
                                                   //         .color
                                                   //     : const Color(0xffF3F8FF),
-                                                  fontSize:
-                                                      FontSizesWidget.of(context)!
-                                                          .regular,
+                                                  fontSize: FontSizesWidget.of(
+                                                          context)!
+                                                      .regular,
                                                 ),
                                               ),
                                               SizedBox(
                                                 height: 20,
                                               ),
                                               Builder(
-                                                builder: (BuildContext context) {
+                                                builder:
+                                                    (BuildContext context) {
                                                   final initialValue =
-                                                      registrationStore.email.value;
+                                                      registrationStore
+                                                          .email.value;
                                                   return Observer(
                                                     builder:
                                                         (BuildContext context) {
                                                       return TextFormField(
                                                         autocorrect: false,
-                                                        initialValue: initialValue,
+                                                        initialValue:
+                                                            initialValue,
                                                         onChanged: (v) {
-                                                          registrationStore.email
+                                                          registrationStore
+                                                              .email
                                                               .value = v.trim();
                                                         },
-                                                        decoration: InputDecoration(
+                                                        decoration:
+                                                            InputDecoration(
                                                           border: inputBorder,
                                                           errorText:
                                                               registrationStore
@@ -770,8 +817,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                                           //   child: Image.asset(
                                                           //       'images/mail.png'),
                                                           // ),
-                                                          hintText: localization!
-                                                              .getByKey(
+                                                          hintText:
+                                                              localization!
+                                                                  .getByKey(
                                                             'login.placeholder.emailaddress',
                                                           ),
                                                         ),
@@ -784,7 +832,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 height: 20,
                                               ),
                                               Builder(
-                                                builder: (BuildContext context) {
+                                                builder:
+                                                    (BuildContext context) {
                                                   final initialValue =
                                                       registrationStore
                                                           .password.value;
@@ -793,26 +842,31 @@ class _LoginScreenState extends State<LoginScreen> {
                                                         (BuildContext context) {
                                                       return TextFormField(
                                                         autocorrect: false,
-                                                        initialValue: initialValue,
+                                                        initialValue:
+                                                            initialValue,
                                                         onChanged: (v) {
                                                           registrationStore
-                                                              .password.value = v;
+                                                              .password
+                                                              .value = v;
                                                         },
                                                         obscureText:
                                                             isHiddenPassword,
-                                                        decoration: InputDecoration(
+                                                        decoration:
+                                                            InputDecoration(
                                                           border: inputBorder,
                                                           errorText:
                                                               registrationStore
-                                                                  .password.error,
+                                                                  .password
+                                                                  .error,
                                                           // prefixIcon: Container(
                                                           //   width: 50,
                                                           //   height: 50,
                                                           //   child: Image.asset(
                                                           //       'images/password.png'),
                                                           // ),
-                                                          hintText: localization!
-                                                              .getByKey(
+                                                          hintText:
+                                                              localization!
+                                                                  .getByKey(
                                                             'login.placeholder.password',
                                                           ),
                                                           suffixIcon:
@@ -822,10 +876,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                                             },
                                                             child: Icon(
                                                               isHiddenPassword
-                                                                  ? Icons.visibility
+                                                                  ? Icons
+                                                                      .visibility
                                                                   : Icons
                                                                       .visibility_off,
-                                                              color: Colors.white,
+                                                              color:
+                                                                  Colors.white,
                                                             ),
                                                           ),
                                                         ),
@@ -838,7 +894,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 height: 20,
                                               ),
                                               Builder(
-                                                builder: (BuildContext context) {
+                                                builder:
+                                                    (BuildContext context) {
                                                   final initialValue =
                                                       registrationStore
                                                           .confirmationPassword
@@ -848,7 +905,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                                         (BuildContext context) {
                                                       return TextFormField(
                                                         autocorrect: false,
-                                                        initialValue: initialValue,
+                                                        initialValue:
+                                                            initialValue,
                                                         onChanged: (v) {
                                                           registrationStore
                                                               .confirmationPassword
@@ -856,19 +914,22 @@ class _LoginScreenState extends State<LoginScreen> {
                                                         },
                                                         obscureText:
                                                             isHiddenPassword2,
-                                                        decoration: InputDecoration(
+                                                        decoration:
+                                                            InputDecoration(
                                                           border: inputBorder,
-                                                          errorText: registrationStore
-                                                              .confirmationPassword
-                                                              .error,
+                                                          errorText:
+                                                              registrationStore
+                                                                  .confirmationPassword
+                                                                  .error,
                                                           // prefixIcon: Container(
                                                           //   width: 50,
                                                           //   height: 50,
                                                           //   child: Image.asset(
                                                           //       'images/password.png'),
                                                           // ),
-                                                          hintText: localization!
-                                                              .getByKey(
+                                                          hintText:
+                                                              localization!
+                                                                  .getByKey(
                                                             'login.placeholder.confirmation_password',
                                                           ),
                                                           suffixIcon:
@@ -878,10 +939,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                                             },
                                                             child: Icon(
                                                               isHiddenPassword2
-                                                                  ? Icons.visibility
+                                                                  ? Icons
+                                                                      .visibility
                                                                   : Icons
                                                                       .visibility_off,
-                                                              color: Colors.white,
+                                                              color:
+                                                                  Colors.white,
                                                             ),
                                                           ),
                                                         ),
@@ -894,14 +957,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 height: 20,
                                               ),
                                               Observer(
-                                                builder: (BuildContext context) {
+                                                builder:
+                                                    (BuildContext context) {
                                                   return TextButton(
                                                     onPressed: () {
                                                       if (!registrationStore
                                                           .canRegister) {
                                                         return;
                                                       }
-                                                      registrationStore.register!
+                                                      registrationStore
+                                                          .register!
                                                           .executeIf();
                                                     },
                                                     child: Text(
@@ -915,7 +980,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       backgroundColor:
                                                           registrationStore
                                                                   .canRegister
-                                                              ? Theme.of(context)
+                                                              ? Theme.of(
+                                                                      context)
                                                                   .accentColor
                                                               : Colors.blue,
                                                       // Theme.of(context)
@@ -925,10 +991,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                                         vertical: 18,
                                                         horizontal: 50,
                                                       ),
-                                                      shape: RoundedRectangleBorder(
+                                                      shape:
+                                                          RoundedRectangleBorder(
                                                         borderRadius:
-                                                            BorderRadius.circular(
-                                                                10),
+                                                            BorderRadius
+                                                                .circular(10),
                                                       ),
                                                     ),
                                                   );

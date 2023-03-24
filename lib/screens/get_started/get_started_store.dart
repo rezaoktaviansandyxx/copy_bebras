@@ -8,17 +8,17 @@ class GetStartedStore {
         ..title = 'Halo!'
         ..description = 'Selamat datang di aplikasi PANDAI!'
         ..subtitle = 'PANDAI! adalah aplikasi untuk mengasah logika berpikir komputasional.\nYuk cari tahu seberapa tajam logikamu.'
-        ..imagePath = 'images/maskot_bebras.png',
+        ..imagePath = 'images/maskot_bebras.svg',
       OnboardingModel()
         ..title = 'Halo!'
         ..description = 'Selamat datang di aplikasi PANDAI!'
         ..subtitle = 'PANDAI! adalah aplikasi untuk mengasah logika berpikir komputasional.\nYuk cari tahu seberapa tajam logikamu.'
-        ..imagePath = 'images/maskot_bebras.png',
+        ..imagePath = 'images/maskot_bebras.svg',
       OnboardingModel()
         ..title = 'Halo!'
         ..description = 'Selamat datang di aplikasi PANDAI!'
         ..subtitle = 'PANDAI! adalah aplikasi untuk mengasah logika berpikir komputasional.\nYuk cari tahu seberapa tajam logikamu.'
-        ..imagePath = 'images/maskot_bebras.png',
+        ..imagePath = 'images/maskot_bebras.svg',
       // OnboardingModel()
       //   ..title = 'Welcome to Anugra'
       //   ..description = 'The best place to level up your managerial Skill'

@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluxmobileapp/styles/styles.dart';
 import 'package:fluxmobileapp/widgets/curve_widget.dart';
@@ -43,9 +42,6 @@ class _DetailArticleStaticScreenState extends State<DetailArticleStaticScreen> {
                   color: Colors.white,
                   height: MediaQuery.of(context).size.height * 60 / 100,
                 ),
-                // AppClipPath(
-                //   height: 150,
-                // ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 28 / 100,
                   width: MediaQuery.of(context).size.width,
@@ -57,22 +53,6 @@ class _DetailArticleStaticScreenState extends State<DetailArticleStaticScreen> {
                     clipper: CurveClipper(),
                   ),
                 ),
-                // CustomPaint(
-                //   child: Container(
-                //     height: 150,
-                //     decoration: BoxDecoration(
-                //       image: DecorationImage(
-                //         image: NetworkImage(
-                //           'images/bebras/Itera-2017-01-300x225 2.png',
-                //         ),
-                //       ),
-                //     ),
-                //   ),
-                //   painter: CurveWidget(
-                //     color: Color(0XFF00ADEE).withOpacity(0.25),
-                //   ),
-                // ),
-                // Image.asset('images/bebras/Itera-2017-01-300x225 2.png'),
                 Padding(
                   padding: EdgeInsets.only(
                     left: 15,
@@ -87,7 +67,7 @@ class _DetailArticleStaticScreenState extends State<DetailArticleStaticScreen> {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'Institut Teknologi Sumatera, Bandar Lampung 23 September 2017',
+                          'Institut Teknologi Sumatera, Bandar Lampung \n23 September 2017',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                           ),
@@ -100,7 +80,7 @@ class _DetailArticleStaticScreenState extends State<DetailArticleStaticScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'by: Admin',
+                            'by: Bebras Indonesia',
                           ),
                           RatingWidget(
                             rating: 5,
@@ -117,7 +97,7 @@ class _DetailArticleStaticScreenState extends State<DetailArticleStaticScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 22 / 100,
+                        height: MediaQuery.of(context).size.height * 20 / 100,
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
@@ -151,7 +131,8 @@ class _DetailArticleStaticScreenState extends State<DetailArticleStaticScreen> {
                                         useExpandedCategory: false,
                                         item: SessionItem()
                                           ..title =
-                                              'Univesitas Lambung \nMangkurat, Samarinda \n18 Juli 2017'
+                                              'Univesitas Lambung \nMangkurat, Samarinda'
+                                              ..tag = '18 Juli 2017'
                                           ..category = 'Artikel'
                                           ..imageThumbnail =
                                               'images/bebras/Unlam-2017-01-270x270 1.png'
@@ -175,7 +156,8 @@ class _DetailArticleStaticScreenState extends State<DetailArticleStaticScreen> {
                                         useExpandedCategory: false,
                                         item: SessionItem()
                                           ..title =
-                                              'Univesitas Lambung \nMangkurat, Samarinda \n18 Juli 2017'
+                                              'Univesitas Lambung \nMangkurat, Samarinda'
+                                              ..tag = '18 Juli 2017'
                                           ..category = 'Artikel'
                                           ..imageThumbnail =
                                               'images/bebras/Unlam-2017-01-270x270 1.png'
@@ -189,23 +171,6 @@ class _DetailArticleStaticScreenState extends State<DetailArticleStaticScreen> {
                           },
                         ),
                       ),
-                      // Row(
-                      //   mainAxisSize: MainAxisSize.min,
-                      //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      //   children: [
-                      //     // AspectRatio(
-                      //     //   aspectRatio: listHeight / (listHeight + 100),
-                      //     //   child: SessionItemWidget(
-                      //     //     item: SessionItem()
-                      //     //       ..imageThumbnail =
-                      //     //           'images/bebras/Unlam-2017-01-270x270 1.png'
-                      //     //       ..category = 'Artikel'
-                      //     //       ..title =
-                      //     //           'Univesitas Lambung \nMangkurat, Samarinda \n18 Juli 2017',
-                      //     //   ),
-                      //     // ),
-                      //   ],
-                      // ),
                     ],
                   ),
                 ),

@@ -209,7 +209,8 @@ class _ArticleScreenStaticState extends State<ArticleScreenStatic>
                                     useExpandedCategory: false,
                                     item: SessionItem()
                                       ..title =
-                                          'Institut Teknologi Sumatera, \nBandar Lampung \n23 September 2017'
+                                          'Institut Teknologi Sumatera, \nBandar Lampung'
+                                      ..tag = '23 September 2017'
                                       ..category = 'Artikel'
                                       ..imageThumbnail =
                                           'images/bebras/Itera-2017-01-300x225 1.png'
@@ -230,7 +231,8 @@ class _ArticleScreenStaticState extends State<ArticleScreenStatic>
                                     useExpandedCategory: false,
                                     item: SessionItem()
                                       ..title =
-                                          'Univesitas Lambung \nMangkurat, Samarinda \n18 Juli 2017'
+                                          'Univesitas Lambung \nMangkurat, Samarinda'
+                                      ..tag = '18 Juli 2017'
                                       ..category = 'Artikel'
                                       ..imageThumbnail =
                                           'images/bebras/Unlam-2017-01-270x270 1.png'
