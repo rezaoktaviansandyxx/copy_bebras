@@ -8,6 +8,7 @@ import 'package:fluxmobileapp/screens/recommendation/recommendation_screen.dart'
 import 'package:fluxmobileapp/screens/recommendation/recommendation_store.dart';
 import 'package:fluxmobileapp/screens/topic/topic_screen.dart';
 import 'package:fluxmobileapp/stores/tutorial_walkthrough_store.dart';
+import 'package:fluxmobileapp/styles/styles.dart';
 import 'package:fluxmobileapp/widgets/tutorial_walkthrough_basic.dart';
 import 'package:mobx/mobx.dart';
 import 'package:rxdart/rxdart.dart';
@@ -40,6 +41,13 @@ abstract class _HomeStore extends BaseStore with Store {
         SectionItem()
           ..widget = (c) => ArticleScreenStatic(
                 refreshTrigger: refreshAllTrigger,
+                title: 'Berita',
+                style: TextStyle(
+                  fontFamily: 'Quicksand',
+                  fontWeight: FontWeight.bold,
+                  fontSize: FontSizes.large,
+                  color: Colors.blue,
+                ),
               ),
         SectionItem()
           ..widget = (c) {

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:fluxmobileapp/baselib/base_state_mixin.dart';
 import 'package:fluxmobileapp/baselib/localization_service.dart';
 import 'package:fluxmobileapp/baselib/widgets.dart';
 import 'package:fluxmobileapp/components/user_profile_button.dart';
+import 'package:fluxmobileapp/screens/article_static/article_static_screen.dart';
 import 'package:fluxmobileapp/screens/browse/browse_filter_screen.dart';
 import 'package:fluxmobileapp/screens/browse/browse_store.dart';
+import 'package:fluxmobileapp/screens/home/home_store.dart';
 import 'package:fluxmobileapp/screens/main_tab/main_tab_store.dart';
+import 'package:fluxmobileapp/screens/popular_sesion/popular_session_store.dart';
 import 'package:fluxmobileapp/services/secure_storage.dart';
 import 'package:fluxmobileapp/styles/styles.dart';
 import 'package:fluxmobileapp/utils/theme_extensions.dart';
@@ -34,13 +38,16 @@ class _BrowseScreenState extends State<BrowseScreen>
         BaseStateMixin<BrowseStore, BrowseScreen>,
         AutomaticKeepAliveClientMixin {
   final _store = BrowseStore();
+  final _store2 = PopularSessionStore();
   @override
   BrowseStore get store => _store;
+  PopularSessionStore get store2 => _store2;
 
   final localization = sl.get<ILocalizationService>();
   final scrollController = ScrollController();
 
   final searchFocusNode = FocusNode();
+  final refreshAllTrigger = PublishSubject();
   final double listHeight = 250;
 
   @override
@@ -329,6 +336,96 @@ class _BrowseScreenState extends State<BrowseScreen>
                         ),
                         child: Column(
                           children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Contoh Soal',
+                                  style: AppTheme.of(context)
+                                      .sectionTitle
+                                      .copyWith(
+                                        color: Colors.black,
+                                      ),
+                                ),
+                                Text(
+                                  'Lihat semua',
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: listHeight,
+                              child: ListView.builder(
+                                itemCount: 1,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {},
+                                        child: AspectRatio(
+                                          aspectRatio:
+                                              listHeight / (listHeight + 100),
+                                          child: Padding(
+                                            padding: EdgeInsets.all(
+                                              10,
+                                            ),
+                                            child: SessionItemWidget(
+                                              useExpandedCategory: false,
+                                              item: SessionItem()
+                                                ..title = 'Materi'
+                                                ..category = 'Materi'
+                                                ..imageThumbnail =
+                                                    'images/bebras/bebras_materi.png'
+                                                ..author = 'Bebras Indonesia',
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        onTap: () {},
+                                        child: AspectRatio(
+                                          aspectRatio:
+                                              listHeight / (listHeight + 100),
+                                          child: Padding(
+                                            padding: EdgeInsets.all(
+                                              10,
+                                            ),
+                                            child: SessionItemWidget(
+                                              useExpandedCategory: false,
+                                              item: SessionItem()
+                                                ..title = 'Materi'
+                                                ..category = 'Materi'
+                                                ..imageThumbnail =
+                                                    'images/bebras/bebras_materi.png'
+                                                ..author = 'Bebras Indonesia',
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            ArticleScreenStatic(
+                              refreshTrigger: refreshAllTrigger,
+                              title: 'Artikel',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: FontSizes.large,
+                              ),
+                            ),
                             SizedBox(
                               height: 10,
                             ),
@@ -401,88 +498,6 @@ class _BrowseScreenState extends State<BrowseScreen>
                                                 ..category = 'Pembahasan Soal'
                                                 ..imageThumbnail =
                                                     'images/bebras/bebras_pembahasan_soal_2.png'
-                                                ..author = 'Bebras Indonesia',
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Contoh Soal',
-                                  style: AppTheme.of(context)
-                                      .sectionTitle
-                                      .copyWith(
-                                        color: Colors.black,
-                                      ),
-                                ),
-                                Text(
-                                  'Lihat semua',
-                                  style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: listHeight,
-                              child: ListView.builder(
-                                itemCount: 1,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      InkWell(
-                                        onTap: () {},
-                                        child: AspectRatio(
-                                          aspectRatio:
-                                              listHeight / (listHeight + 100),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(
-                                              10,
-                                            ),
-                                            child: SessionItemWidget(
-                                              useExpandedCategory: false,
-                                              item: SessionItem()
-                                                ..title = 'Contoh Soal'
-                                                ..category = 'Contoh Soal'
-                                                ..imageThumbnail =
-                                                    'images/bebras/bebras_contoh_soal.png'
-                                                ..author = 'Bebras Indonesia',
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      InkWell(
-                                        onTap: () {},
-                                        child: AspectRatio(
-                                          aspectRatio:
-                                              listHeight / (listHeight + 100),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(
-                                              10,
-                                            ),
-                                            child: SessionItemWidget(
-                                              useExpandedCategory: false,
-                                              item: SessionItem()
-                                                ..title = 'Contoh Soal'
-                                                ..category = 'Contoh Soal'
-                                                ..imageThumbnail =
-                                                    'images/bebras/bebras_contoh_soal.png'
                                                 ..author = 'Bebras Indonesia',
                                             ),
                                           ),

@@ -69,17 +69,17 @@ abstract class _BrowseFilterStore extends BaseStore with Store {
           // ],
           types: [
             BrowseChipItem()
+              ..id = 'video'
+              ..name = 'Pembahasan Soal',
+            BrowseChipItem()
               ..id = 'article'
               ..name = 'Artikel',
             BrowseChipItem()
-              ..id = 'video'
-              ..name = 'Materi Pembelajaran',
-            BrowseChipItem()
               ..id = 'podcast'
-              ..name = 'Latihan',
+              ..name = 'Materi',
             BrowseChipItem()
               ..id = 'series'
-              ..name = 'Contoh Soal',
+              ..name = 'Bebras Challenge',
           ],
         );
       }
