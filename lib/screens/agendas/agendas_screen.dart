@@ -399,17 +399,45 @@ class _AgendasScreenState extends State<AgendasScreen>
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.stretch,
                                                 children: <Widget>[
+                                                  // ListTile(
+                                                  //   leading: Icon(
+                                                  //     Icons.broken_image,
+                                                  //     size: 60,
+                                                  //   ),
+                                                  //   title: Text(
+                                                  //     itemStore.item!.name!,
+                                                  //     style: TextStyle(
+                                                  //       fontSize:
+                                                  //           FontSizesWidget.of(
+                                                  //                   context)!
+                                                  //               .large,
+                                                  //       fontWeight:
+                                                  //           FontWeight.w300,
+                                                  //       color: Colors.black,
+                                                  //     ),
+                                                  //   ),
+                                                  //   subtitle: Text(
+                                                  //     itemStore.item!.notes!,
+                                                  //     style: TextStyle(
+                                                  //       fontSize:
+                                                  //           FontSizesWidget.of(
+                                                  //                   context)!
+                                                  //               .regular,
+                                                  //     ),
+                                                  //   ),
+                                                  // ),
                                                   Text(
-                                                    itemStore.item!.name!,
-                                                    style: TextStyle(
-                                                      fontSize:
-                                                          FontSizesWidget.of(
-                                                                  context)!
-                                                              .large,
-                                                      fontWeight:
-                                                          FontWeight.w300,
+                                                      itemStore.item!.name!,
+                                                      style: TextStyle(
+                                                        fontSize:
+                                                            FontSizesWidget.of(
+                                                                    context)!
+                                                                .large,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                        color: Colors.black,
+                                                      ),
                                                     ),
-                                                  ),
                                                   const SizedBox(
                                                     height: 5,
                                                   ),
