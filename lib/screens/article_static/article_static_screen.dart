@@ -16,14 +16,16 @@ import '../../appsettings.dart';
 class ArticleScreenStatic extends StatefulWidget {
   final Stream? refreshTrigger;
   final String title;
-  final TextStyle style;
+  final String title2;
+  final TextStyle? style;
 
   ArticleScreenStatic(
-      {Key? key, this.refreshTrigger, required this.title, required this.style})
+      {Key? key, this.refreshTrigger, required this.title, required this.title2, this.style})
       : super(key: key);
 
   _ArticleScreenStaticState createState() => _ArticleScreenStaticState();
 }
+
 class _ArticleScreenStaticState extends State<ArticleScreenStatic>
     with BaseStateMixin<PopularSessionStore, ArticleScreenStatic> {
   final _store = PopularSessionStore();
@@ -117,11 +119,11 @@ class _ArticleScreenStaticState extends State<ArticleScreenStatic>
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  widget.title,
+                  widget.title??'',
                   style: widget.style,
                 ),
                 Text(
-                  'Lihat Semua',
+                  widget.title2??'',
                   style: AppTheme.of(context).sectionTitle.copyWith(
                         fontSize: 12,
                       ),
@@ -146,14 +148,25 @@ class _ArticleScreenStaticState extends State<ArticleScreenStatic>
                       addAutomaticKeepAlives: true,
                       shrinkWrap: true,
                       itemBuilder: (BuildContext context, int index) {
-                        final item = store.items[6];
-                        final item2 = store.items[10];
+                        final item = store.items
+                            .where((num) =>
+                                num.id?.contains(
+                                    '9294f338-2f8c-47f6-946e-b0911cd3cc8a') ??
+                                false)
+                            .toList();
+                        final item2 = store.items
+                            .where((num) =>
+                                num.id?.contains(
+                                    '4299b73e-bd46-4c36-98da-707b91139161') ??
+                                false)
+                            .toList();
+                        ;
 
                         return Row(
                           children: [
                             InkWell(
                               onTap: () {
-                                store.goToDetail.executeIf(item);
+                                store.goToDetail.executeIf(item[0]);
                               },
                               child: AspectRatio(
                                 aspectRatio: listHeight / (listHeight + 100),
@@ -163,15 +176,13 @@ class _ArticleScreenStaticState extends State<ArticleScreenStatic>
                                   ),
                                   child: SessionItemWidget(
                                     item: SessionItem()
-                                      ..author = 'Super Administrator'
-                                      ..imageThumbnail =
-                                          "https://penala.azurewebsites.net/images/articles/0576b77a-8787-4ff8-be23-318c407500a7.jpg"
-                                      ..rating = 4
-                                      ..totalUserRate = 1
-                                      ..title =
-                                          'Institut Teknologi Sumatera,  Bandar Lampung  23 September 2017'
-                                      ..category = 'article'
-                                      ..tag = 'Penggalang',
+                                      ..author = item[0].author
+                                      ..imageThumbnail = item[0].imageThumbnail
+                                      ..rating = item[0].rating
+                                      ..totalUserRate = item[0].totalUserRate
+                                      ..title = item[0].title
+                                      ..category = item[0].type
+                                      ..tag = item[0].tags,
                                   ),
                                 ),
                               ),
@@ -181,7 +192,7 @@ class _ArticleScreenStaticState extends State<ArticleScreenStatic>
                             ),
                             InkWell(
                               onTap: () {
-                                store.goToDetail.executeIf(item2);
+                                store.goToDetail.executeIf(item2[0]);
                               },
                               child: AspectRatio(
                                 aspectRatio: listHeight / (listHeight + 100),
@@ -191,15 +202,13 @@ class _ArticleScreenStaticState extends State<ArticleScreenStatic>
                                   ),
                                   child: SessionItemWidget(
                                     item: SessionItem()
-                                      ..author = 'Super Administrator'
-                                      ..imageThumbnail =
-                                          "https://penala.azurewebsites.net/images/articles/9244019e-764b-48f1-ae90-d8c6158a1634.jpg"
-                                      ..rating = 0
-                                      ..totalUserRate = 0
-                                      ..title =
-                                          'Univesitas Lambung Mangkurat, Samarinda  18 Juli 2017'
-                                      ..category = 'article'
-                                      ..tag = 'Penggalang',
+                                      ..author = item2[0].author
+                                      ..imageThumbnail = item2[0].imageThumbnail
+                                      ..rating = item2[0].rating
+                                      ..totalUserRate = item2[0].totalUserRate
+                                      ..title = item2[0].title
+                                      ..category = item2[0].type
+                                      ..tag = item2[0].tags,
                                   ),
                                 ),
                               ),

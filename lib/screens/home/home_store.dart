@@ -42,6 +42,7 @@ abstract class _HomeStore extends BaseStore with Store {
           ..widget = (c) => ArticleScreenStatic(
                 refreshTrigger: refreshAllTrigger,
                 title: 'Berita',
+                title2: 'Lihat Semua',
                 style: TextStyle(
                   fontFamily: 'Quicksand',
                   fontWeight: FontWeight.bold,

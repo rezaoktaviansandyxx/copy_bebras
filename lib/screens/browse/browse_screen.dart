@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:fluxmobileapp/baselib/base_state_mixin.dart';
 import 'package:fluxmobileapp/baselib/localization_service.dart';
@@ -8,7 +7,6 @@ import 'package:fluxmobileapp/components/user_profile_button.dart';
 import 'package:fluxmobileapp/screens/article_static/article_static_screen.dart';
 import 'package:fluxmobileapp/screens/browse/browse_filter_screen.dart';
 import 'package:fluxmobileapp/screens/browse/browse_store.dart';
-import 'package:fluxmobileapp/screens/home/home_store.dart';
 import 'package:fluxmobileapp/screens/main_tab/main_tab_store.dart';
 import 'package:fluxmobileapp/screens/popular_sesion/popular_session_store.dart';
 import 'package:fluxmobileapp/services/secure_storage.dart';
@@ -23,6 +21,8 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../stores/user_profile_store.dart';
 import '../../appsettings.dart';
@@ -340,7 +340,7 @@ class _BrowseScreenState extends State<BrowseScreen>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Contoh Soal',
+                                  'Materi',
                                   style: AppTheme.of(context)
                                       .sectionTitle
                                       .copyWith(
@@ -380,7 +380,7 @@ class _BrowseScreenState extends State<BrowseScreen>
                                             child: SessionItemWidget(
                                               useExpandedCategory: false,
                                               item: SessionItem()
-                                                ..title = 'Materi'
+                                                ..title = 'Materi Bebras'
                                                 ..category = 'Materi'
                                                 ..imageThumbnail =
                                                     'images/bebras/bebras_materi.png'
@@ -401,7 +401,7 @@ class _BrowseScreenState extends State<BrowseScreen>
                                             child: SessionItemWidget(
                                               useExpandedCategory: false,
                                               item: SessionItem()
-                                                ..title = 'Materi'
+                                                ..title = 'Materi Bebras'
                                                 ..category = 'Materi'
                                                 ..imageThumbnail =
                                                     'images/bebras/bebras_materi.png'
@@ -418,13 +418,35 @@ class _BrowseScreenState extends State<BrowseScreen>
                             SizedBox(
                               height: 10,
                             ),
-                            ArticleScreenStatic(
-                              refreshTrigger: refreshAllTrigger,
-                              title: 'Artikel',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: FontSizes.large,
-                              ),
+                            Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Artikel',
+                                      style: AppTheme.of(context)
+                                          .sectionTitle
+                                          .copyWith(
+                                            color: Colors.black,
+                                          ),
+                                    ),
+                                    Text(
+                                      'Lihat semua',
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                ArticleScreenStatic(
+                                  refreshTrigger: refreshAllTrigger,
+                                  title: '',
+                                  title2: '',
+                                ),
+                              ],
                             ),
                             SizedBox(
                               height: 10,
@@ -456,13 +478,35 @@ class _BrowseScreenState extends State<BrowseScreen>
                                 itemCount: 1,
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (BuildContext context, int index) {
+                                  final String documentUrl =
+                                      'https://drive.google.com/file/d/1soAdPUYXg7uuhc7kV_HHkvRgborev5_Y/view?usp=sharing';
+                                  final String documentUrl2 =
+                                      'https://drive.google.com/file/d/1fdnMwyEsB42VcTD1-lCNkUXNamMpQ1gL/view?usp=sharing';
                                   return Row(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
                                       InkWell(
-                                        onTap: () {},
+                                        onTap: () async {
+                                          if (await canLaunchUrlString(
+                                              documentUrl)) {
+                                            await launchUrlString(documentUrl);
+                                          } else {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Tidak dapat diakses $documentUrl',
+                                                ),
+                                                duration: Duration(
+                                                  milliseconds: 250,
+                                                ),
+                                                backgroundColor: Colors.red,
+                                              ),
+                                            );
+                                          }
+                                        },
                                         child: AspectRatio(
                                           aspectRatio:
                                               listHeight / (listHeight - 0),
@@ -483,7 +527,25 @@ class _BrowseScreenState extends State<BrowseScreen>
                                         ),
                                       ),
                                       InkWell(
-                                        onTap: () {},
+                                        onTap: () async {
+                                          if (await canLaunchUrlString(
+                                              documentUrl2)) {
+                                            await launchUrlString(documentUrl2);
+                                          } else {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Tidak dapat diakses $documentUrl2',
+                                                ),
+                                                duration: Duration(
+                                                  milliseconds: 250,
+                                                ),
+                                                backgroundColor: Colors.red,
+                                              ),
+                                            );
+                                          }
+                                        },
                                         child: AspectRatio(
                                           aspectRatio:
                                               listHeight / (listHeight - 0),
@@ -579,7 +641,21 @@ class _BrowseScreenState extends State<BrowseScreen>
                                         ),
                                       ),
                                       InkWell(
-                                        onTap: () {},
+                                        onTap: () async {
+                                          final secureStorage =
+                                              sl.get<SecureStorage>()!;
+                                          final allkeys =
+                                              await secureStorage.getAll();
+                                          for (var item in allkeys.entries) {
+                                            if (item.key
+                                                .startsWith('assessment-')) {
+                                              await secureStorage
+                                                  .remove(item.key);
+                                            }
+                                          }
+                                          Get.toNamed(
+                                              '/assessment_introduction');
+                                        },
                                         child: AspectRatio(
                                           aspectRatio:
                                               listHeight / (listHeight - 0),

@@ -266,11 +266,11 @@ class _GoalsTabContentWidgetState extends State<GoalsTabContentWidget>
   void initState() {
     super.initState();
 
-    // listController.addListener(() {
-    //   if (listController.offset == listController.position.maxScrollExtent) {
-    //     store.loadMoreRefresher.add(null);
-    //   }
-    // });
+    listController.addListener(() {
+      if (listController.offset == listController.position.maxScrollExtent) {
+        store.loadMoreRefresher.add(null);
+      }
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       store.loadMoreRefresher.add(null);
@@ -353,7 +353,7 @@ class _GoalsTabContentWidgetState extends State<GoalsTabContentWidget>
               [DataState.success]: SmartRefresher(
                 controller: RefreshController(),
                 onRefresh: () {
-                  // store.dataRefresher.add(null);
+                  store.dataRefresher.add(null);
                 },
                 child: Observer(
                   builder: (BuildContext context) {
