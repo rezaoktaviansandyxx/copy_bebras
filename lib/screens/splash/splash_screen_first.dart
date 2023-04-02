@@ -1,7 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluxmobileapp/components/splash_screen.dart';
 import 'package:get/get.dart';
 
 class SplashScreenV2 extends StatefulWidget {
@@ -13,36 +12,20 @@ class SplashScreenV2 extends StatefulWidget {
 
 class _SplashScreenV2State extends State<SplashScreenV2> {
   @override
-  void initState() {
-    super.initState();
-    splashscreenStart();
-  }
-
-  splashscreenStart() async {
-    var duration = const Duration(milliseconds: 3000);
-    return Timer(duration, () {
-      Get.toNamed('/splash_screen');
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Color(0XFF00ADEE).withOpacity(0.5),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                'images/maskot_bebras.svg',
-                fit: BoxFit.fitWidth,
-                height: MediaQuery.of(context).size.height * 45 / 100,
-              ),
-            ],
-          ),
-        ),
+      body: SplashScreen(
+        seconds: 3,
+        navigateAfterSeconds: '/splash_screen',
+        image: 'images/maskot_bebras.svg',
+        backgroundColor: Color(0XFF00ADEE).withOpacity(0.25),
+        loadingText: Text('Sedang Memuat'),
+        loaderColor: Colors.blue.shade800,
+        styleTextUnderTheLoader: TextStyle(
+            fontFamily: 'Quicksand',
+            color: Colors.black,
+            fontWeight: FontWeight.w600),
+        useLoader: true,
       ),
     );
   }

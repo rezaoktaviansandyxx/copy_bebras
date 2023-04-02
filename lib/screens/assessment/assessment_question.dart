@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:art_sweetalert/art_sweetalert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -56,23 +57,31 @@ class AssessmentQuestion extends HookWidget {
 
         {
           final d = store!.alertInteraction.registerHandler((f) async {
-            await showDialog(
+            await ArtSweetAlert.show(
                 context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    content: Text(
-                      f!,
-                    ),
-                    actions: <Widget>[
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Text('Ok'),
-                      ),
-                    ],
-                  );
-                });
+                artDialogArgs: ArtDialogArgs(
+                    text: f!,
+                    confirmButtonText: 'Ok',
+                    onConfirm: () {
+                      Navigator.of(context).pop();
+                    }));
+            // await showDialog(
+            //     context: context,
+            //     builder: (context) {
+            //       return AlertDialog(
+            //         content: Text(
+            //           f!,
+            //         ),
+            //         actions: <Widget>[
+            //           TextButton(
+            //             onPressed: () {
+            //               Navigator.of(context).pop();
+            //             },
+            //             child: Text('Ok'),
+            //           ),
+            //         ],
+            //       );
+            //     });
             return null;
           });
           ds.add(DisposableBuilder(disposeFunction: () {
@@ -447,8 +456,9 @@ class AssessmentQuestion extends HookWidget {
                                                                   alignment:
                                                                       Alignment
                                                                           .center,
-                                                                  child: SvgPicture
-                                                                      .asset(
+                                                                  child:
+                                                                      SvgPicture
+                                                                          .asset(
                                                                     'images/soala/${item.imageUrl}.svg',
                                                                     height: MediaQuery.of(context)
                                                                             .size
@@ -562,32 +572,60 @@ class AssessmentQuestion extends HookWidget {
                                       return TextButton(
                                         onPressed: () async {
                                           if (isLastQuestion) {
-                                            final sure = await showDialog(
-                                                context: context,
-                                                builder: (context) {
-                                                  return AlertDialog(
-                                                    title: Text('Confirmation'),
-                                                    content: Text(
+                                            final sure =
+                                                await ArtSweetAlert.show(
+                                              barrierDismissible: false,
+                                              context: context,
+                                              artDialogArgs: ArtDialogArgs(
+                                                  title: 'Confirmation',
+                                                  text:
                                                       'You assessment will be submitted',
-                                                    ),
-                                                    actions: <Widget>[
-                                                      TextButton(
-                                                        onPressed: () {
-                                                          Navigator.of(context)
-                                                              .pop();
-                                                        },
-                                                        child: Text('Cancel'),
-                                                      ),
-                                                      TextButton(
-                                                        onPressed: () {
-                                                          Navigator.of(context)
-                                                              .pop(true);
-                                                        },
-                                                        child: Text('Submit'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                });
+                                                  denyButtonText: 'Cancel',
+                                                  confirmButtonText: 'Submit',
+                                                  type:
+                                                      ArtSweetAlertType.warning,
+                                                  onConfirm: () async {
+                                                    await ArtSweetAlert.show(
+                                                        context: context,
+                                                        artDialogArgs: ArtDialogArgs(
+                                                            type:
+                                                                ArtSweetAlertType
+                                                                    .success,
+                                                            title:
+                                                                "Submitted!"));
+                                                    Navigator.of(context)
+                                                        .pop(true);
+                                                  },
+                                                  onCancel: () {
+                                                    Navigator.of(context).pop();
+                                                  }),
+                                            );
+                                            // final sure = await showDialog(
+                                            //     context: context,
+                                            //     builder: (context) {
+                                            //       return AlertDialog(
+                                            //         title: Text('Confirmation'),
+                                            //         content: Text(
+                                            //           'You assessment will be submitted',
+                                            //         ),
+                                            //         actions: <Widget>[
+                                            //           TextButton(
+                                            //             onPressed: () {
+                                            //               Navigator.of(context)
+                                            //                   .pop();
+                                            //             },
+                                            //             child: Text('Cancel'),
+                                            //           ),
+                                            //           TextButton(
+                                            //             onPressed: () {
+                                            //               Navigator.of(context)
+                                            //                   .pop(true);
+                                            //             },
+                                            //             child: Text('Submit'),
+                                            //           ),
+                                            //         ],
+                                            //       );
+                                            //     });
                                             if (sure == true) {
                                               Get.off(
                                                 SplashScreeenAssessment(
