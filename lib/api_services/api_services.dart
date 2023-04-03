@@ -27,9 +27,9 @@ abstract class AppClientServices {
 
     dio.interceptors.add(ApiServicesInterceptor());
     if (kDebugMode) {
-      dio.options.baseUrl = 'https://penala-api.azurewebsites.net';
+      dio.options.baseUrl = 'https://bebras-api.azurewebsites.net';
     } else {
-      dio.options.baseUrl = 'https://penala-api.azurewebsites.net';
+      dio.options.baseUrl = 'https://bebras-api.azurewebsites.net';
     }
   }
 
@@ -730,10 +730,10 @@ abstract class AppClientServices {
     String? id, {
     CancelToken? cancelToken,
   }) async {
-    final String _result =
+    final String json =
         await rootBundle.loadString('assets/jsonfile/soala.json');
-    final jsondata = jsonDecode(_result);
-    // await _dio.get(
+    final _result = jsonDecode(json);
+    // final Response<Map<String, dynamic>> _result = await _dio.get(
     //   '/api/assessment/v3/$id',
     //   cancelToken: cancelToken,
     //   options: Options(
@@ -742,7 +742,7 @@ abstract class AppClientServices {
     //     },
     //   ),
     // );
-    final value = BaseResponse.fromJson(jsondata, (json) {
+    final value = BaseResponse.fromJson(_result, (json) {
       return AssessmentModel.fromJson(json);
     });
     return Future.value(value);
