@@ -78,7 +78,7 @@ class _UserRegisteredSuccessScreenState
                                 ),
                                 const SizedBox(height: 15),
                                 Text(
-                                  'Your account has registered as member Anugra',
+                                  'Your account has registered',
                                   style: TextStyle(
                                     fontSize:
                                         FontSizesWidget.of(context)!.regular,
@@ -112,6 +112,9 @@ class _UserRegisteredSuccessScreenState
                     },
                     child: Text(
                       'Go To Homepage',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                     style: TextButton.styleFrom(
                       backgroundColor: Theme.of(context).accentColor,

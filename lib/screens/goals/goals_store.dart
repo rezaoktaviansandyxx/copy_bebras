@@ -53,6 +53,7 @@ abstract class _GoalsStore extends BaseStore with Store {
             (t) => t.item!.id == lastAddedGoalId,
           );
           if (addedGoal != null) {
+            lastAddedGoalId = null;
             goToDetail.executeIf(addedGoal);
           }
         }

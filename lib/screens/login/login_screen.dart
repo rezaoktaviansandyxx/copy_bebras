@@ -805,6 +805,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                               .email
                                                               .value = v.trim();
                                                         },
+                                                        keyboardType: TextInputType.emailAddress,
                                                         decoration:
                                                             InputDecoration(
                                                           border: inputBorder,

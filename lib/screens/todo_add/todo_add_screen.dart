@@ -89,7 +89,7 @@ class _TodoAddScreenState extends State<TodoAddScreen>
                     const SizedBox(
                       height: 15,
                     ),
-
+          
                     // Goals
                     if (widget.goals != null)
                       Text(
@@ -110,15 +110,16 @@ class _TodoAddScreenState extends State<TodoAddScreen>
                                 widget.goals == null) {
                               return const SizedBox();
                             }
-
                             return DropdownButton<GoalItem>(
                               value: store.todoAddModel.selectedGoal,
-                              isDense: true,
+                              isExpanded: true,
+                              isDense: false,
                               items: widget.goals?.map((e) {
                                     return DropdownMenuItem<GoalItem>(
                                       value: e,
                                       child: Text(
                                         e.name ?? '',
+                                        overflow: TextOverflow.clip,
                                         style: TextStyle(
                                           color: context.isLight
                                               ? Colors.black
@@ -136,7 +137,7 @@ class _TodoAddScreenState extends State<TodoAddScreen>
                         ),
                       ),
                     if (widget.goals != null) const SizedBox(height: 10),
-
+          
                     // Task name
                     Text(
                       'Task Name',
@@ -158,9 +159,8 @@ class _TodoAddScreenState extends State<TodoAddScreen>
                               ),
                               borderSide: BorderSide.none,
                             ),
-                            fillColor: context.isLight
-                                ? const Color(0xffE6F0FF)
-                                : null,
+                            fillColor:
+                                context.isLight ? const Color(0xffE6F0FF) : null,
                           ),
                           style: context.isLight
                               ? TextStyle(
@@ -179,7 +179,7 @@ class _TodoAddScreenState extends State<TodoAddScreen>
                         );
                       },
                     ),
-
+          
                     const SizedBox(
                       height: 15,
                     ),
@@ -242,11 +242,11 @@ class _TodoAddScreenState extends State<TodoAddScreen>
                         ),
                       ),
                     ),
-
+          
                     const SizedBox(
                       height: 15,
                     ),
-
+          
                     // Reminder
                     Text(
                       'Set Reminder',
@@ -275,7 +275,7 @@ class _TodoAddScreenState extends State<TodoAddScreen>
                         );
                       },
                     ),
-
+          
                     // Hour
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -295,14 +295,13 @@ class _TodoAddScreenState extends State<TodoAddScreen>
                         Observer(
                           builder: (BuildContext context) {
                             final initial = store.todoAddModel.hour;
-
+          
                             return AppDropdown(
                               items: List<String>.generate(24, (f) {
                                 return twoDigits(f);
                               }),
-                              value: initial != null
-                                  ? twoDigits(initial)
-                                  : '00:00',
+                              value:
+                                  initial != null ? twoDigits(initial) : '00:00',
                               onChanged: (String? v) {
                                 final _hour =
                                     int.tryParse(v?.split(':')[0] ?? '');
@@ -315,11 +314,11 @@ class _TodoAddScreenState extends State<TodoAddScreen>
                         ),
                       ],
                     ),
-
+          
                     const SizedBox(
                       height: 20,
                     ),
-
+          
                     IntrinsicHeight(
                       child: Row(
                         children: <Widget>[
@@ -345,8 +344,7 @@ class _TodoAddScreenState extends State<TodoAddScreen>
                                   color: Theme.of(context).iconTheme.color,
                                   fontFamily: 'Quicksand',
                                   fontWeight: FontWeight.bold,
-                                  fontSize:
-                                      FontSizesWidget.of(context)!.regular,
+                                  fontSize: FontSizesWidget.of(context)!.regular,
                                 ),
                               ),
                             ),
@@ -378,8 +376,7 @@ class _TodoAddScreenState extends State<TodoAddScreen>
                                   color: Colors.white,
                                   fontFamily: 'Quicksand',
                                   fontWeight: FontWeight.bold,
-                                  fontSize:
-                                      FontSizesWidget.of(context)!.regular,
+                                  fontSize: FontSizesWidget.of(context)!.regular,
                                 ),
                               ),
                             ),

@@ -59,16 +59,6 @@ abstract class _SplashStore extends BaseStore with Store {
           //   route = '/assessment_introduction';
           // } else
           if (loginResponse!.isFirstLogin == true) {
-            appServices!.navigatorState!.pushAndRemoveUntil(
-              MaterialPageRoute(builder: (BuildContext context) {
-                return UserChangePasswordScreen(
-                  fromIsFirstTimeUser: true,
-                );
-              }),
-              (route) => false,
-            );
-            return;
-          } else {
             // final myAssessmentv2 =
             //     await appClientServices.getUserAssessmentV2();
             // final myAssessmentv2 = null;
@@ -92,7 +82,20 @@ abstract class _SplashStore extends BaseStore with Store {
             } else {
               route = '/main';
             }
+          } else {
+              route = '/main';
           }
+          // else {
+          //   appServices!.navigatorState!.pushAndRemoveUntil(
+          //     MaterialPageRoute(builder: (BuildContext context) {
+          //       return UserChangePasswordScreen(
+          //         fromIsFirstTimeUser: true,
+          //       );
+          //     }),
+          //     (route) => false,
+          //   );
+          //   return;
+          // }
         } else {
           route = '/get_started';
         }

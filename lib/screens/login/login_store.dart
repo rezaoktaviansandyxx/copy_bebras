@@ -239,21 +239,6 @@ abstract class _RegistrationStore extends BaseStore with Store {
           'common.validation.password_confirmation',
         ),
     );
-    // .addAll(
-    //   [
-    //     StringNotNullValidator()
-    //       ..errorMessage = localization.getByKey(
-    //         'common.cantbenull',
-    //       ),
-    //     InlineValidator(
-    //       validator: (value) {
-    //       return value == password.value;
-    //     })
-    //       ..errorMessage = localization.getByKey(
-    //         'common.validaton.password_confirmation',
-    //       ),
-    //   ]
-    // );
 
     {
       final emailObservable = MobxUtils.toStream(
@@ -319,20 +304,13 @@ abstract class _RegistrationStore extends BaseStore with Store {
         await alertInteraction.handle(
           localization!.getByKey('login.button.register_success'),
         );
-        // Get.back();
-        // Get.toNamed(
-        //   '/login',
-        //   arguments: {'pageIndex': 0},
-        // );
         if (appServices!.navigatorState!.canPop()) {
-          // appServices.navigatorState!.pop();
           Get.back();
           Get.toNamed(
             '/login',
             arguments: {'pageIndex': 0},
           );
         } else {
-          // appServices.navigatorState!.pushNamed('/');
           Get.toNamed('/splash_screen');
         }
       } catch (error) {

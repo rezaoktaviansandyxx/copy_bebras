@@ -50,27 +50,27 @@ abstract class _HomeStore extends BaseStore with Store {
                   color: Colors.blue,
                 ),
               ),
-        SectionItem()
-          ..widget = (c) {
-            return RecommendationScreen(
-              type: RecommendationType.byInterest,
-              refreshTrigger: refreshAllTrigger,
-            );
-          }
-          ..hasTutorial = true,
-        SectionItem()
-          ..widget = (c) => RecommendationScreen(
-                type: RecommendationType.byAssessment,
-                refreshTrigger: refreshAllTrigger,
-              ),
-        SectionItem()
-          ..widget = (c) => RecentSessionScreen(
-                refreshTrigger: refreshAllTrigger,
-              ),
-        SectionItem()
-          ..widget = (c) => PopularSessionScreen(
-                refreshTrigger: refreshAllTrigger,
-              ),
+        // SectionItem()
+        //   ..widget = (c) {
+        //     return RecommendationScreen(
+        //       type: RecommendationType.byInterest,
+        //       refreshTrigger: refreshAllTrigger,
+        //     );
+        //   }
+        //   ..hasTutorial = true,
+        // SectionItem()
+        //   ..widget = (c) => RecommendationScreen(
+        //         type: RecommendationType.byAssessment,
+        //         refreshTrigger: refreshAllTrigger,
+        //       ),
+        // SectionItem()
+        //   ..widget = (c) => RecentSessionScreen(
+        //         refreshTrigger: refreshAllTrigger,
+        //       ),
+        // SectionItem()
+        //   ..widget = (c) => PopularSessionScreen(
+        //         refreshTrigger: refreshAllTrigger,
+        //       ),
         // SectionItem()..widget = (c) => ListOfAuthorScreen(),
       ],
     );

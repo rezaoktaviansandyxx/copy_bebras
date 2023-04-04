@@ -27,9 +27,9 @@ abstract class AppClientServices {
 
     dio.interceptors.add(ApiServicesInterceptor());
     if (kDebugMode) {
-      dio.options.baseUrl = 'https://bebras-api.azurewebsites.net';
+      dio.options.baseUrl = 'https://bebras-api.azurewebsites.net/';
     } else {
-      dio.options.baseUrl = 'https://bebras-api.azurewebsites.net';
+      dio.options.baseUrl = 'https://bebras-api.azurewebsites.net/';
     }
   }
 
