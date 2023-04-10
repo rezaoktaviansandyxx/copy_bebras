@@ -87,214 +87,210 @@ class _BrowseFilterScreenState extends State<BrowseFilterScreen> {
           children: <Widget>[
             createDivider(),
             Expanded(
-              child: Container(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      // Topic
-                      FilterExpandableWidget(
-                        header: 'Topic',
-                        initialExpanded: true,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            StreamBuilder(
-                              stream: store!.filterDataSubject,
-                              initialData: null,
-                              builder: (
-                                BuildContext context,
-                                AsyncSnapshot snapshot,
-                              ) {
-                                final topics =
-                                    store!.filterDataSubject.value.topics;
-                                if (topics == null) {
-                                  return const SizedBox();
-                                }
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  // Topic
+                  FilterExpandableWidget(
+                    header: 'Topic',
+                    initialExpanded: true,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        StreamBuilder(
+                          stream: store!.filterDataSubject,
+                          initialData: null,
+                          builder: (
+                            BuildContext context,
+                            AsyncSnapshot snapshot,
+                          ) {
+                            final topics =
+                                store!.filterDataSubject.value.topics;
+                            if (topics == null) {
+                              return const SizedBox();
+                            }
 
-                                return Wrap(
-                                  alignment: WrapAlignment.start,
-                                  children: topics.map((f) {
-                                    return ChipWidget(
-                                      text: f.name,
-                                      isSelected: f.isSelected,
-                                      onTap: () {
-                                        if (f.isSelected == null) {
-                                          f.isSelected = false;
-                                        }
-                                        f.isSelected = !f.isSelected!;
-                                        store!.filterDataSubject.add(
-                                          store!.filterDataSubject.value,
-                                        );
-                                      },
+                            return Wrap(
+                              alignment: WrapAlignment.start,
+                              children: topics.map((f) {
+                                return ChipWidget(
+                                  text: f.name,
+                                  isSelected: f.isSelected,
+                                  onTap: () {
+                                    if (f.isSelected == null) {
+                                      f.isSelected = false;
+                                    }
+                                    f.isSelected = !f.isSelected!;
+                                    store!.filterDataSubject.add(
+                                      store!.filterDataSubject.value,
                                     );
-                                  }).toList(),
+                                  },
                                 );
-                              },
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                          ],
+                              }).toList(),
+                            );
+                          },
                         ),
-                      ),
-
-                      // Type
-                      createDivider(),
-                      FilterExpandableWidget(
-                        header: 'Type',
-                        initialExpanded: true,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            StreamBuilder(
-                              stream: store!.filterDataSubject,
-                              initialData: null,
-                              builder: (
-                                BuildContext context,
-                                AsyncSnapshot snapshot,
-                              ) {
-                                final types =
-                                    store!.filterDataSubject.value.types;
-                                if (types == null) {
-                                  return const SizedBox();
-                                }
-
-                                return Wrap(
-                                  alignment: WrapAlignment.start,
-                                  children: types.map((f) {
-                                    return ChipWidget(
-                                      text: f.name,
-                                      isSelected: f.isSelected,
-                                      onTap: () {
-                                        if (f.isSelected == null) {
-                                          f.isSelected = false;
-                                        }
-                                        f.isSelected = !f.isSelected!;
-                                        store!.filterDataSubject.add(
-                                          store!.filterDataSubject.value,
-                                        );
-                                      },
-                                    );
-                                  }).toList(),
-                                );
-                              },
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                          ],
+                        const SizedBox(
+                          height: 15,
                         ),
-                      ),
-
-                      // // Rating
-                      // createDivider(),
-                      // FilterExpandableWidget(
-                      //   header: 'Rating',
-                      //   initialExpanded: false,
-                      //   child: Column(
-                      //     crossAxisAlignment: CrossAxisAlignment.stretch,
-                      //     children: <Widget>[
-                      //       StreamBuilder(
-                      //         stream: store.filterDataSubject,
-                      //         initialData: null,
-                      //         builder: (
-                      //           BuildContext context,
-                      //           AsyncSnapshot snapshot,
-                      //         ) {
-                      //           final rating =
-                      //               store.filterDataSubject.value?.rating ?? 0;
-                      //           return DropdownButtonHideUnderline(
-                      //             child: DropdownButton<int>(
-                      //               isExpanded: true,
-                      //               isDense: true,
-                      //               value: rating,
-                      //               items: List.generate(6, (i) {
-                      //                 return DropdownMenuItem(
-                      //                   value: i,
-                      //                   child: Text(
-                      //                     i == 0 ? 'Show All' : '$i rating',
-                      //                     style: TextStyle(
-                      //                       fontFamily: 'Rubik',
-                      //                       color: Theme.of(context)
-                      //                           .textTheme
-                      //                           .bodyText2
-                      //                           .color,
-                      //                     ),
-                      //                   ),
-                      //                 );
-                      //               }),
-                      //               onChanged: (v) {
-                      //                 final filterDataMap =
-                      //                     store.filterDataSubject.value.toMap();
-
-                      //                 // If user select 'Show All'
-                      //                 if (v == 0) {
-                      //                   filterDataMap['rating'] = null;
-                      //                 } else {
-                      //                   filterDataMap['rating'] = v;
-                      //                 }
-                      //                 final newFilterValue =
-                      //                     BrowseFilterData.fromMap(
-                      //                   filterDataMap,
-                      //                 );
-                      //                 store.filterDataSubject.add(
-                      //                   newFilterValue,
-                      //                 );
-                      //               },
-                      //             ),
-                      //           );
-                      //         },
-                      //       ),
-                      //       const SizedBox(
-                      //         height: 15,
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
-
-                      // Authors
-                      // createDivider(),
-                      // FilterExpandableWidget(
-                      //   header: 'Authors',
-                      //   initialExpanded: false,
-                      //   child: StreamBuilder(
-                      //     stream: store!.filterDataSubject,
-                      //     initialData: null,
-                      //     builder: (
-                      //       BuildContext context,
-                      //       AsyncSnapshot snapshot,
-                      //     ) {
-                      //       final authors =
-                      //           store!.filterDataSubject.value.authors;
-                      //       if (authors == null) {
-                      //         return const SizedBox();
-                      //       }
-
-                      //       return Wrap(
-                      //         alignment: WrapAlignment.start,
-                      //         children: authors.map((f) {
-                      //           return ChipWidget(
-                      //             text: f.name,
-                      //             isSelected: f.isSelected,
-                      //             onTap: () {
-                      //               if (f.isSelected == null) {
-                      //                 f.isSelected = false;
-                      //               }
-                      //               f.isSelected = !f.isSelected!;
-                      //               store!.filterDataSubject.add(
-                      //                 store!.filterDataSubject.value,
-                      //               );
-                      //             },
-                      //           );
-                      //         }).toList(),
-                      //       );
-                      //     },
-                      //   ),
-                      // ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
+
+                  // Type
+                  createDivider(),
+                  FilterExpandableWidget(
+                    header: 'Type',
+                    initialExpanded: true,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        StreamBuilder(
+                          stream: store!.filterDataSubject,
+                          initialData: null,
+                          builder: (
+                            BuildContext context,
+                            AsyncSnapshot snapshot,
+                          ) {
+                            final types =
+                                store!.filterDataSubject.value.types;
+                            if (types == null) {
+                              return const SizedBox();
+                            }
+
+                            return Wrap(
+                              alignment: WrapAlignment.start,
+                              children: types.map((f) {
+                                return ChipWidget(
+                                  text: f.name,
+                                  isSelected: f.isSelected,
+                                  onTap: () {
+                                    if (f.isSelected == null) {
+                                      f.isSelected = false;
+                                    }
+                                    f.isSelected = !f.isSelected!;
+                                    store!.filterDataSubject.add(
+                                      store!.filterDataSubject.value,
+                                    );
+                                  },
+                                );
+                              }).toList(),
+                            );
+                          },
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // // Rating
+                  // createDivider(),
+                  // FilterExpandableWidget(
+                  //   header: 'Rating',
+                  //   initialExpanded: false,
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.stretch,
+                  //     children: <Widget>[
+                  //       StreamBuilder(
+                  //         stream: store.filterDataSubject,
+                  //         initialData: null,
+                  //         builder: (
+                  //           BuildContext context,
+                  //           AsyncSnapshot snapshot,
+                  //         ) {
+                  //           final rating =
+                  //               store.filterDataSubject.value?.rating ?? 0;
+                  //           return DropdownButtonHideUnderline(
+                  //             child: DropdownButton<int>(
+                  //               isExpanded: true,
+                  //               isDense: true,
+                  //               value: rating,
+                  //               items: List.generate(6, (i) {
+                  //                 return DropdownMenuItem(
+                  //                   value: i,
+                  //                   child: Text(
+                  //                     i == 0 ? 'Show All' : '$i rating',
+                  //                     style: TextStyle(
+                  //                       fontFamily: 'Rubik',
+                  //                       color: Theme.of(context)
+                  //                           .textTheme
+                  //                           .bodyText2
+                  //                           .color,
+                  //                     ),
+                  //                   ),
+                  //                 );
+                  //               }),
+                  //               onChanged: (v) {
+                  //                 final filterDataMap =
+                  //                     store.filterDataSubject.value.toMap();
+
+                  //                 // If user select 'Show All'
+                  //                 if (v == 0) {
+                  //                   filterDataMap['rating'] = null;
+                  //                 } else {
+                  //                   filterDataMap['rating'] = v;
+                  //                 }
+                  //                 final newFilterValue =
+                  //                     BrowseFilterData.fromMap(
+                  //                   filterDataMap,
+                  //                 );
+                  //                 store.filterDataSubject.add(
+                  //                   newFilterValue,
+                  //                 );
+                  //               },
+                  //             ),
+                  //           );
+                  //         },
+                  //       ),
+                  //       const SizedBox(
+                  //         height: 15,
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+
+                  // Authors
+                  // createDivider(),
+                  // FilterExpandableWidget(
+                  //   header: 'Authors',
+                  //   initialExpanded: false,
+                  //   child: StreamBuilder(
+                  //     stream: store!.filterDataSubject,
+                  //     initialData: null,
+                  //     builder: (
+                  //       BuildContext context,
+                  //       AsyncSnapshot snapshot,
+                  //     ) {
+                  //       final authors =
+                  //           store!.filterDataSubject.value.authors;
+                  //       if (authors == null) {
+                  //         return const SizedBox();
+                  //       }
+
+                  //       return Wrap(
+                  //         alignment: WrapAlignment.start,
+                  //         children: authors.map((f) {
+                  //           return ChipWidget(
+                  //             text: f.name,
+                  //             isSelected: f.isSelected,
+                  //             onTap: () {
+                  //               if (f.isSelected == null) {
+                  //                 f.isSelected = false;
+                  //               }
+                  //               f.isSelected = !f.isSelected!;
+                  //               store!.filterDataSubject.add(
+                  //                 store!.filterDataSubject.value,
+                  //               );
+                  //             },
+                  //           );
+                  //         }).toList(),
+                  //       );
+                  //     },
+                  //   ),
+                  // ),
+                ],
               ),
             ),
             Padding(

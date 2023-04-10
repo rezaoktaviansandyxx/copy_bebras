@@ -257,6 +257,67 @@ abstract class AppClientServices {
     return Future.value(value);
   }
 
+  FutureOr<BaseResponse<List<BrowseModel>>> getArticleSearch({
+    required GetBrowseRequest request,
+    CancelToken? cancelToken,
+  }) async {
+    final map = Map<String, dynamic>();
+    if (request.topic?.isNotEmpty == true) {
+      map.putIfAbsent('Topic', () {
+        return request.topic;
+      });
+    }
+    if (request.contentType?.isNotEmpty == true) {
+      map.putIfAbsent('ContentType', () {
+        return request.contentType;
+      });
+    }
+    if (request.rating != null) {
+      map.putIfAbsent('Rating', () {
+        return request.rating.toString();
+      });
+    }
+    if (request.author?.isNotEmpty == true) {
+      map.putIfAbsent('Author', () {
+        return request.author;
+      });
+    }
+    if (request.page != null) {
+      map.putIfAbsent('p', () {
+        return request.page.toString();
+      });
+    }
+    if (request.pageLimit != null) {
+      map.putIfAbsent('s', () {
+        return request.pageLimit.toString();
+      });
+    }
+    if (!isBlank(request.query)) {
+      map.putIfAbsent('q', () {
+        return request.query;
+      });
+    }
+
+    final uri = Uri(
+      path: '/api/search',
+      queryParameters: map,
+    );
+
+    final Response<Map<String, dynamic>> _result = await _dio.getUri(
+      uri,
+      cancelToken: cancelToken,
+      options: Options(
+        headers: {
+          authorization: '',
+        },
+      ),
+    );
+    final value = BaseResponse.fromJson(_result.data!, (json) {
+      return BrowseModel.fromListJson(json);
+    });
+    return Future.value(value);
+  }
+
   FutureOr<BaseResponse<List<ActivityItem>>> getOnGoingActivity(
     GetActivityRequest request, {
     CancelToken? cancelToken,
