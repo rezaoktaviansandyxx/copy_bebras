@@ -1,14 +1,16 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:fluxmobileapp/baselib/base_state_mixin.dart';
 import 'package:fluxmobileapp/baselib/localization_service.dart';
 import 'package:fluxmobileapp/baselib/widgets.dart';
 import 'package:fluxmobileapp/components/user_profile_button.dart';
-import 'package:fluxmobileapp/screens/article_static/article_static_screen.dart';
 import 'package:fluxmobileapp/screens/browse/browse_filter_screen.dart';
 import 'package:fluxmobileapp/screens/browse/browse_store.dart';
 import 'package:fluxmobileapp/screens/main_tab/main_tab_store.dart';
-import 'package:fluxmobileapp/screens/popular_sesion/popular_session_store.dart';
+import 'package:fluxmobileapp/screens/static/article_static_screen.dart';
+import 'package:fluxmobileapp/screens/static/materi_screen.dart';
 import 'package:fluxmobileapp/services/secure_storage.dart';
 import 'package:fluxmobileapp/styles/styles.dart';
 import 'package:fluxmobileapp/utils/theme_extensions.dart';
@@ -20,8 +22,8 @@ import 'package:fluxmobileapp/widgets/tutorial_walkthrough_basic.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:quiver/strings.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../stores/user_profile_store.dart';
@@ -38,10 +40,8 @@ class _BrowseScreenState extends State<BrowseScreen>
         BaseStateMixin<BrowseStore, BrowseScreen>,
         AutomaticKeepAliveClientMixin {
   final _store = BrowseStore();
-  final _store2 = PopularSessionStore();
   @override
   BrowseStore get store => _store;
-  PopularSessionStore get store2 => _store2;
 
   final localization = sl.get<ILocalizationService>();
   final scrollController = ScrollController();
@@ -262,6 +262,8 @@ class _BrowseScreenState extends State<BrowseScreen>
                       ),
                       onPressed: () {
                         store.showBrowseFilter.executeIf();
+                        print(
+                            'Filterrr ${store.browseFilterStore?.filterData?.types?.where((element) => element.isSelected == true).first.id}');
                       },
                     ),
                   ),
@@ -334,353 +336,387 @@ class _BrowseScreenState extends State<BrowseScreen>
                           left: 15,
                           right: 15,
                         ),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Materi',
-                                  style: AppTheme.of(context)
-                                      .sectionTitle
-                                      .copyWith(
-                                        color: Colors.black,
-                                      ),
-                                ),
-                                Text(
-                                  'Lihat semua',
-                                  style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: listHeight,
-                              child: ListView.builder(
-                                itemCount: 1,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      InkWell(
-                                        onTap: () {},
-                                        child: AspectRatio(
-                                          aspectRatio:
-                                              listHeight / (listHeight + 100),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(
-                                              10,
-                                            ),
-                                            child: SessionItemWidget(
-                                              useExpandedCategory: false,
-                                              item: SessionItem()
-                                                ..title = 'Materi Bebras'
-                                                ..category = 'Materi'
-                                                ..imageThumbnail =
-                                                    'images/bebras/bebras_materi.png'
-                                                ..author = 'Bebras Indonesia',
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      InkWell(
-                                        onTap: () {},
-                                        child: AspectRatio(
-                                          aspectRatio:
-                                              listHeight / (listHeight + 100),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(
-                                              10,
-                                            ),
-                                            child: SessionItemWidget(
-                                              useExpandedCategory: false,
-                                              item: SessionItem()
-                                                ..title = 'Materi Bebras'
-                                                ..category = 'Materi'
-                                                ..imageThumbnail =
-                                                    'images/bebras/bebras_materi.png'
-                                                ..author = 'Bebras Indonesia',
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        child: Observer(
+                          builder: (context) {
+                            final selected = store
+                                    .browseFilterStore?.filterData?.types
+                                    ?.where((element) =>
+                                        element.isSelected == true) ??
+                                [];
+                            final List<Widget> children = [];
+                            if (selected.length == 0 ||
+                                selected
+                                    .where((element) => element.id == 'series')
+                                    .isNotEmpty) {
+                              children.add(
+                                Column(
                                   children: [
-                                    Text(
-                                      'Artikel',
-                                      style: AppTheme.of(context)
-                                          .sectionTitle
-                                          .copyWith(
-                                            color: Colors.black,
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Materi',
+                                          style: AppTheme.of(context)
+                                              .sectionTitle
+                                              .copyWith(
+                                                color: Colors.black,
+                                              ),
+                                        ),
+                                        Text(
+                                          'Lihat semua',
+                                          style: TextStyle(
+                                            color: Colors.blue,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w600,
                                           ),
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      'Lihat semua',
-                                      style: TextStyle(
-                                        color: Colors.blue,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w600,
+                                    MateriScreen(
+                                      refreshTrigger: refreshAllTrigger,
+                                      title: '',
+                                      title2: '',
+                                    ),
+                                  ],
+                                ),
+                              );
+                              children.add(
+                                SizedBox(
+                                  height: 10,
+                                ),
+                              );
+                            }
+                            if (selected.length == 0 ||
+                                selected
+                                    .where((element) => element.id == 'article')
+                                    .isNotEmpty) {
+                              children.add(
+                                Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Artikel',
+                                          style: AppTheme.of(context)
+                                              .sectionTitle
+                                              .copyWith(
+                                                color: Colors.black,
+                                              ),
+                                        ),
+                                        Text(
+                                          'Lihat semua',
+                                          style: TextStyle(
+                                            color: Colors.blue,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    ArticleScreenStatic(
+                                      refreshTrigger: refreshAllTrigger,
+                                      title: '',
+                                      title2: '',
+                                    ),
+                                  ],
+                                ),
+                              );
+                              children.add(
+                                SizedBox(
+                                  height: 10,
+                                ),
+                              );
+                            }
+                            if (selected.length == 0 ||
+                                selected
+                                    .where((element) => element.id == 'video')
+                                    .isNotEmpty) {
+                              children.add(
+                                Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Pembahasan Soal',
+                                          style: AppTheme.of(context)
+                                              .sectionTitle
+                                              .copyWith(
+                                                color: Colors.black,
+                                              ),
+                                        ),
+                                        Text(
+                                          'Lihat semua',
+                                          style: TextStyle(
+                                            color: Colors.blue,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: listHeight,
+                                      child: ListView.builder(
+                                        itemCount: 1,
+                                        scrollDirection: Axis.horizontal,
+                                        itemBuilder:
+                                            (BuildContext context, int index) {
+                                          final String documentUrl =
+                                              'https://drive.google.com/file/d/1soAdPUYXg7uuhc7kV_HHkvRgborev5_Y/view?usp=sharing';
+                                          final String documentUrl2 =
+                                              'https://drive.google.com/file/d/1fdnMwyEsB42VcTD1-lCNkUXNamMpQ1gL/view?usp=sharing';
+                                          return Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              InkWell(
+                                                onTap: () async {
+                                                  if (await canLaunchUrlString(
+                                                      documentUrl)) {
+                                                    await launchUrlString(
+                                                        documentUrl);
+                                                  } else {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Tidak dapat diakses $documentUrl',
+                                                        ),
+                                                        duration: Duration(
+                                                          milliseconds: 250,
+                                                        ),
+                                                        backgroundColor:
+                                                            Colors.red,
+                                                      ),
+                                                    );
+                                                  }
+                                                },
+                                                child: AspectRatio(
+                                                  aspectRatio: listHeight /
+                                                      (listHeight - 0),
+                                                  child: Padding(
+                                                    padding: EdgeInsets.all(
+                                                      10,
+                                                    ),
+                                                    child: SessionItemWidget(
+                                                      useExpandedCategory:
+                                                          false,
+                                                      item: SessionItem()
+                                                        ..title =
+                                                            'Pembahasan Soal'
+                                                        ..category =
+                                                            'Pembahasan Soal'
+                                                        ..imageThumbnail =
+                                                            'images/bebras/bebras_pembahasan_soal.png'
+                                                        ..author =
+                                                            'Bebras Indonesia',
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              InkWell(
+                                                onTap: () async {
+                                                  if (await canLaunchUrlString(
+                                                      documentUrl2)) {
+                                                    await launchUrlString(
+                                                        documentUrl2);
+                                                  } else {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Tidak dapat diakses $documentUrl2',
+                                                        ),
+                                                        duration: Duration(
+                                                          milliseconds: 250,
+                                                        ),
+                                                        backgroundColor:
+                                                            Colors.red,
+                                                      ),
+                                                    );
+                                                  }
+                                                },
+                                                child: AspectRatio(
+                                                  aspectRatio: listHeight /
+                                                      (listHeight - 0),
+                                                  child: Padding(
+                                                    padding: EdgeInsets.all(
+                                                      10,
+                                                    ),
+                                                    child: SessionItemWidget(
+                                                      useExpandedCategory:
+                                                          false,
+                                                      item: SessionItem()
+                                                        ..title =
+                                                            'Pembahasan Soal'
+                                                        ..category =
+                                                            'Pembahasan Soal'
+                                                        ..imageThumbnail =
+                                                            'images/bebras/bebras_pembahasan_soal_2.png'
+                                                        ..author =
+                                                            'Bebras Indonesia',
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          );
+                                        },
                                       ),
                                     ),
                                   ],
                                 ),
-                                ArticleScreenStatic(
-                                  refreshTrigger: refreshAllTrigger,
-                                  title: '',
-                                  title2: '',
+                              );
+                              children.add(
+                                SizedBox(
+                                  height: 10,
                                 ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Pembahasan Soal',
-                                  style: AppTheme.of(context)
-                                      .sectionTitle
-                                      .copyWith(
-                                        color: Colors.black,
-                                      ),
-                                ),
-                                Text(
-                                  'Lihat semua',
-                                  style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: listHeight,
-                              child: ListView.builder(
-                                itemCount: 1,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (BuildContext context, int index) {
-                                  final String documentUrl =
-                                      'https://drive.google.com/file/d/1soAdPUYXg7uuhc7kV_HHkvRgborev5_Y/view?usp=sharing';
-                                  final String documentUrl2 =
-                                      'https://drive.google.com/file/d/1fdnMwyEsB42VcTD1-lCNkUXNamMpQ1gL/view?usp=sharing';
-                                  return Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      InkWell(
-                                        onTap: () async {
-                                          if (await canLaunchUrlString(
-                                              documentUrl)) {
-                                            await launchUrlString(documentUrl);
-                                          } else {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'Tidak dapat diakses $documentUrl',
-                                                ),
-                                                duration: Duration(
-                                                  milliseconds: 250,
-                                                ),
-                                                backgroundColor: Colors.red,
+                              );
+                            }
+                            if (selected.length == 0 ||
+                                selected
+                                    .where((element) => element.id == 'podcast')
+                                    .isNotEmpty) {
+                              children.add(
+                                Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Bebras Challenge',
+                                          style: AppTheme.of(context)
+                                              .sectionTitle
+                                              .copyWith(
+                                                color: Colors.black,
                                               ),
-                                            );
-                                          }
-                                        },
-                                        child: AspectRatio(
-                                          aspectRatio:
-                                              listHeight / (listHeight - 0),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(
-                                              10,
-                                            ),
-                                            child: SessionItemWidget(
-                                              useExpandedCategory: false,
-                                              item: SessionItem()
-                                                ..title = 'Pembahasan Soal'
-                                                ..category = 'Pembahasan Soal'
-                                                ..imageThumbnail =
-                                                    'images/bebras/bebras_pembahasan_soal.png'
-                                                ..author = 'Bebras Indonesia',
-                                            ),
+                                        ),
+                                        Text(
+                                          'Lihat semua',
+                                          style: TextStyle(
+                                            color: Colors.blue,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                      ),
-                                      InkWell(
-                                        onTap: () async {
-                                          if (await canLaunchUrlString(
-                                              documentUrl2)) {
-                                            await launchUrlString(documentUrl2);
-                                          } else {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'Tidak dapat diakses $documentUrl2',
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: listHeight,
+                                      child: ListView.builder(
+                                        itemCount: 1,
+                                        scrollDirection: Axis.horizontal,
+                                        itemBuilder:
+                                            (BuildContext context, int index) {
+                                          return Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              InkWell(
+                                                onTap: () async {
+                                                  final secureStorage =
+                                                      sl.get<SecureStorage>()!;
+                                                  final allkeys =
+                                                      await secureStorage
+                                                          .getAll();
+                                                  for (var item
+                                                      in allkeys.entries) {
+                                                    if (item.key.startsWith(
+                                                        'assessment-')) {
+                                                      await secureStorage
+                                                          .remove(item.key);
+                                                    }
+                                                  }
+                                                  Get.toNamed(
+                                                      '/assessment_introduction');
+                                                },
+                                                child: AspectRatio(
+                                                  aspectRatio: listHeight /
+                                                      (listHeight - 0),
+                                                  child: Padding(
+                                                    padding: EdgeInsets.all(
+                                                      10,
+                                                    ),
+                                                    child: SessionItemWidget(
+                                                      useExpandedCategory:
+                                                          false,
+                                                      item: SessionItem()
+                                                        ..title =
+                                                            'Bebras Challenge'
+                                                        ..category =
+                                                            'Bebras Challenge'
+                                                        ..imageThumbnail =
+                                                            'images/bebras/bebras_challenge.png'
+                                                        ..author =
+                                                            'Bebras Indonesia',
+                                                    ),
+                                                  ),
                                                 ),
-                                                duration: Duration(
-                                                  milliseconds: 250,
-                                                ),
-                                                backgroundColor: Colors.red,
                                               ),
-                                            );
-                                          }
+                                              InkWell(
+                                                onTap: () async {
+                                                  final secureStorage =
+                                                      sl.get<SecureStorage>()!;
+                                                  final allkeys =
+                                                      await secureStorage
+                                                          .getAll();
+                                                  for (var item
+                                                      in allkeys.entries) {
+                                                    if (item.key.startsWith(
+                                                        'assessment-')) {
+                                                      await secureStorage
+                                                          .remove(item.key);
+                                                    }
+                                                  }
+                                                  Get.toNamed(
+                                                      '/assessment_introduction');
+                                                },
+                                                child: AspectRatio(
+                                                  aspectRatio: listHeight /
+                                                      (listHeight - 0),
+                                                  child: Padding(
+                                                    padding: EdgeInsets.all(
+                                                      10,
+                                                    ),
+                                                    child: SessionItemWidget(
+                                                      useExpandedCategory:
+                                                          false,
+                                                      item: SessionItem()
+                                                        ..title =
+                                                            'Bebras Challenge'
+                                                        ..category =
+                                                            'Bebras Challenge'
+                                                        ..imageThumbnail =
+                                                            'images/bebras/bebras_challenge.png'
+                                                        ..author =
+                                                            'Bebras Indonesia',
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          );
                                         },
-                                        child: AspectRatio(
-                                          aspectRatio:
-                                              listHeight / (listHeight - 0),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(
-                                              10,
-                                            ),
-                                            child: SessionItemWidget(
-                                              useExpandedCategory: false,
-                                              item: SessionItem()
-                                                ..title = 'Pembahasan Soal'
-                                                ..category = 'Pembahasan Soal'
-                                                ..imageThumbnail =
-                                                    'images/bebras/bebras_pembahasan_soal_2.png'
-                                                ..author = 'Bebras Indonesia',
-                                            ),
-                                          ),
-                                        ),
                                       ),
-                                    ],
-                                  );
-                                },
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Bebras Challenge',
-                                  style: AppTheme.of(context)
-                                      .sectionTitle
-                                      .copyWith(
-                                        color: Colors.black,
-                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  'Lihat semua',
-                                  style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: listHeight,
-                              child: ListView.builder(
-                                itemCount: 1,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      InkWell(
-                                        onTap: () async {
-                                          final secureStorage =
-                                              sl.get<SecureStorage>()!;
-                                          final allkeys =
-                                              await secureStorage.getAll();
-                                          for (var item in allkeys.entries) {
-                                            if (item.key
-                                                .startsWith('assessment-')) {
-                                              await secureStorage
-                                                  .remove(item.key);
-                                            }
-                                          }
-                                          Get.toNamed(
-                                              '/assessment_introduction');
-                                        },
-                                        child: AspectRatio(
-                                          aspectRatio:
-                                              listHeight / (listHeight - 0),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(
-                                              10,
-                                            ),
-                                            child: SessionItemWidget(
-                                              useExpandedCategory: false,
-                                              item: SessionItem()
-                                                ..title = 'Bebras Challenge'
-                                                ..category = 'Bebras Challenge'
-                                                ..imageThumbnail =
-                                                    'images/bebras/bebras_challenge.png'
-                                                ..author = 'Bebras Indonesia',
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      InkWell(
-                                        onTap: () async {
-                                          final secureStorage =
-                                              sl.get<SecureStorage>()!;
-                                          final allkeys =
-                                              await secureStorage.getAll();
-                                          for (var item in allkeys.entries) {
-                                            if (item.key
-                                                .startsWith('assessment-')) {
-                                              await secureStorage
-                                                  .remove(item.key);
-                                            }
-                                          }
-                                          Get.toNamed(
-                                              '/assessment_introduction');
-                                        },
-                                        child: AspectRatio(
-                                          aspectRatio:
-                                              listHeight / (listHeight - 0),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(
-                                              10,
-                                            ),
-                                            child: SessionItemWidget(
-                                              useExpandedCategory: false,
-                                              item: SessionItem()
-                                                ..title = 'Bebras Challenge'
-                                                ..category = 'Bebras Challenge'
-                                                ..imageThumbnail =
-                                                    'images/bebras/bebras_challenge.png'
-                                                ..author = 'Bebras Indonesia',
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              ),
-                            ),
-                          ],
+                              );
+                            }
+                            return Column(
+                              children: children,
+                            );
+                          },
                         ),
                       ),
                     ),

@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluxmobileapp/baselib/base_store.dart';
 import 'package:fluxmobileapp/baselib/command.dart';
-import 'package:fluxmobileapp/screens/article_static/article_static_screen.dart';
-import 'package:fluxmobileapp/screens/popular_sesion/popular_session_screen.dart';
-import 'package:fluxmobileapp/screens/recent_session/recent_session_screen.dart';
-import 'package:fluxmobileapp/screens/recommendation/recommendation_screen.dart';
-import 'package:fluxmobileapp/screens/recommendation/recommendation_store.dart';
+import 'package:fluxmobileapp/screens/static/article_static_screen.dart';
 import 'package:fluxmobileapp/screens/topic/topic_screen.dart';
 import 'package:fluxmobileapp/stores/tutorial_walkthrough_store.dart';
 import 'package:fluxmobileapp/styles/styles.dart';

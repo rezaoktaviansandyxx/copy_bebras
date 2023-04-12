@@ -3,7 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:fluxmobileapp/baselib/base_state_mixin.dart';
 import 'package:fluxmobileapp/baselib/localization_service.dart';
 import 'package:fluxmobileapp/baselib/widgets.dart';
-import 'package:fluxmobileapp/screens/article_static/article_static_store.dart';
+import 'package:fluxmobileapp/screens/static/article_static_store.dart';
 import 'package:fluxmobileapp/styles/styles.dart';
 import 'package:fluxmobileapp/widgets/app_shimmer.dart';
 import 'package:fluxmobileapp/widgets/session_item_widget.dart';

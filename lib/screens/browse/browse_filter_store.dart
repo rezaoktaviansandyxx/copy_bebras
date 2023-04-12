@@ -26,47 +26,23 @@ abstract class _BrowseFilterStore extends BaseStore with Store {
     getDefaultFilter = Command.parameter((p) async {
       final param = p ?? {};
       final TopicItem? paramTopicItem = param['topicItem'] as TopicItem?;
-      final authors = await appClientServices!.getListAuthor(
-        page: 1,
-        pageSize: pageSize,
-      );
-      final topics = await appClientServices.getTopic(
+      // final authors = await appClientServices!.getListAuthor(
+      //   page: 1,
+      //   pageSize: pageSize,
+      // );
+      final topics = await appClientServices!.getTopic(
         GetTopicRequest()
           ..page = 1
           ..pageLimit = pageSize,
       );
       BrowseFilterData createFilterData() {
         return BrowseFilterData(
-          // authors: [
-          //   BrowseChipItem()
-          //     ..id = 'Bebras Indonesia'
-          //     ..name = 'Bebras Indonesia'
-          //     ..isSelected = false,
-          // ],
           topics: topics.payload!.map((f) {
             return BrowseChipItem()
               ..id = f.name
               ..name = f.name
               ..isSelected = paramTopicItem?.name == f.name;
           }).toList(),
-          // [
-          // BrowseChipItem()
-          //   ..id = 'Sikecil'
-          //   ..name = 'Sikecil'
-          //   ..isSelected = paramTopicItem?.name == 'Sikecil',
-          // BrowseChipItem()
-          //   ..id = 'Siaga'
-          //   ..name = 'Siaga'
-          //   ..isSelected = paramTopicItem?.name == 'Siaga',
-          // BrowseChipItem()
-          //   ..id = 'Penggalang'
-          //   ..name = 'Penggalang'
-          //   ..isSelected = paramTopicItem?.name == 'Penggalang',
-          // BrowseChipItem()
-          //   ..id = 'Penegak'
-          //   ..name = 'Penegak'
-          //   ..isSelected = paramTopicItem?.name == 'Penegak',
-          // ],
           types: [
             BrowseChipItem()
               ..id = 'video'
@@ -75,10 +51,10 @@ abstract class _BrowseFilterStore extends BaseStore with Store {
               ..id = 'article'
               ..name = 'Artikel',
             BrowseChipItem()
-              ..id = 'podcast'
+              ..id = 'series'
               ..name = 'Materi',
             BrowseChipItem()
-              ..id = 'series'
+              ..id = 'podcast'
               ..name = 'Bebras Challenge',
           ],
         );
@@ -87,13 +63,7 @@ abstract class _BrowseFilterStore extends BaseStore with Store {
       //   return BrowseChipItem()
       //     ..id = f.name
       //     ..name = f.name;
-      // }).toList(),
-      // topics.payload!.map((f) {
-      //   return BrowseChipItem()
-      //     ..id = f.name
-      //     ..name = f.name
-      //     ..isSelected = paramTopicItem?.name == f.name;
-      // }).toList(),
+      // }).toList();
 
       if (filterData == null) {
         filterData = createFilterData();
@@ -104,8 +74,7 @@ abstract class _BrowseFilterStore extends BaseStore with Store {
     });
 
     apply = Command(() async {
-      // appServices!.navigatorState!.pop();
-      Get.back();
+      appServices!.navigatorState!.pop();
       filterData = BrowseFilterData.fromMap(filterDataSubject.value.toMap());
     });
 

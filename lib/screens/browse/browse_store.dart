@@ -44,16 +44,16 @@ abstract class _BrowseStore extends BaseStore with Store {
         final filterData = browseFilterStore!.filterData!;
         final request = GetBrowseRequest()
           ..topic =
-              filterData.topics!.where((t) => t.isSelected == true).map((f) {
+              filterData.topics?.where((t) => t.isSelected == true).map((f) {
             return f.id;
           }).toList()
           ..contentType =
-              filterData.types!.where((t) => t.isSelected == true).map((f) {
+              filterData.types?.where((t) => t.isSelected == true).map((f) {
             return f.id;
           }).toList()
           ..rating = filterData.rating
           ..author =
-              filterData.authors!.where((t) => t.isSelected == true).map((f) {
+              filterData.authors?.where((t) => t.isSelected == true).map((f) {
             return f.id;
           }).toList()
           ..page = page
@@ -142,10 +142,8 @@ abstract class _BrowseStore extends BaseStore with Store {
     }
 
     showBrowseFilter = Command(() async {
-      // return;
       if (browseFilterStore!.filterData == null) {
-        final x = await browseFilterStore!.getDefaultFilter.executeIf();
-        await filterInteraction.handle(x);
+      return;
       } else {
         await filterInteraction.handle(
           browseFilterStore!.filterData,
@@ -175,6 +173,7 @@ abstract class _BrowseStore extends BaseStore with Store {
     ]);
   }
 
+  @observable
   BrowseFilterStore? browseFilterStore;
 
   @observable
