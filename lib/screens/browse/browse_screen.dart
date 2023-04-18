@@ -290,7 +290,8 @@ class _BrowseScreenState extends State<BrowseScreen>
                                 store: store.tutorialWalkthroughStore,
                                 child: TextFormField(
                                   onChanged: (v) {
-                                    store.query = v;
+                                    store.items
+                                        .where((element) => element.title!.contains(v));
                                   },
                                   focusNode: searchFocusNode,
                                   // autofocus: true,
