@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluxmobileapp/baselib/base_state_mixin.dart';
 import 'package:fluxmobileapp/baselib/localization_service.dart';
-import 'package:fluxmobileapp/screens/activities/activities_screen.dart';
 import 'package:fluxmobileapp/screens/agendas/agendas_screen.dart';
 import 'package:fluxmobileapp/screens/browse/browse_screen.dart';
 import 'package:fluxmobileapp/screens/goals/goals_screen.dart';

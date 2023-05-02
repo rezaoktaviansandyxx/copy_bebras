@@ -1,3 +1,4 @@
+
 import 'package:fluxmobileapp/baselib/app_services.dart';
 import 'package:fluxmobileapp/baselib/base_store.dart';
 import 'package:fluxmobileapp/baselib/command.dart';
@@ -11,14 +12,14 @@ import '../../api_services/api_services.dart';
 import '../../api_services/api_services_models.dart';
 import '../../appsettings.dart';
 
-part 'materi_store.g.dart';
+part 'bebras_challenge_store.g.dart';
 
-class MateriStore = _MateriStore with _$MateriStore;
+class BebrasChallengeStore = _BebrasChallengeStore with _$BebrasChallengeStore;
 
-abstract class _MateriStore extends BaseStore with Store {
+abstract class _BebrasChallengeStore extends BaseStore with Store {
   var appClient = sl.get<AppClientServices>();
 
-  _MateriStore({
+  _BebrasChallengeStore({
     AppServices? appServices,
     AppClientServices? appClient,
   }) {
@@ -30,7 +31,7 @@ abstract class _MateriStore extends BaseStore with Store {
         state = DataState.loading;
 
         final request = GetBrowseRequest()
-          ..contentType = ['series']
+          ..contentType = ['Bebras Challenge']
           ..page = 1
           ..pageLimit = pageLimit
           ..query = '';

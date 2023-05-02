@@ -4,7 +4,6 @@ import 'package:fluxmobileapp/baselib/base_store.dart';
 import 'package:fluxmobileapp/baselib/command.dart';
 import 'package:fluxmobileapp/baselib/interaction.dart';
 import 'package:fluxmobileapp/baselib/widgets.dart';
-import 'package:fluxmobileapp/services/firebase_service.dart';
 import 'package:fluxmobileapp/services/secure_storage.dart';
 import 'package:fluxmobileapp/stores/tutorial_walkthrough_store.dart';
 import 'package:fluxmobileapp/utils/error_handling_utils.dart';

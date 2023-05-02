@@ -4,23 +4,25 @@ import 'package:fluxmobileapp/api_services/api_services_models.dart';
 import 'package:fluxmobileapp/baselib/base_state_mixin.dart';
 import 'package:fluxmobileapp/baselib/localization_service.dart';
 import 'package:fluxmobileapp/baselib/widgets.dart';
-import 'package:fluxmobileapp/screens/static/materi_store.dart';
+import 'package:fluxmobileapp/screens/static/bebras_challenge_store.dart';
+import 'package:fluxmobileapp/services/secure_storage.dart';
 import 'package:fluxmobileapp/styles/styles.dart';
 import 'package:fluxmobileapp/widgets/app_shimmer.dart';
 import 'package:fluxmobileapp/widgets/session_item_widget.dart';
 import 'package:fluxmobileapp/widgets/error_widget.dart';
+import 'package:get/get.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../appsettings.dart';
 
-class MateriScreen extends StatefulWidget {
+class BebrasChallengeScreen extends StatefulWidget {
   final Stream? refreshTrigger;
   final String title;
   final String title2;
   final TextStyle? style;
   final List<BrowseModel> item;
 
-  MateriScreen(
+  BebrasChallengeScreen(
       {Key? key,
       this.refreshTrigger,
       required this.title,
@@ -29,15 +31,15 @@ class MateriScreen extends StatefulWidget {
       this.style})
       : super(key: key);
 
-  _MateriScreenState createState() => _MateriScreenState();
+  _BebrasChallengeScreenState createState() => _BebrasChallengeScreenState();
 }
 
-class _MateriScreenState extends State<MateriScreen>
-    with BaseStateMixin<MateriStore, MateriScreen> {
-  final _store = MateriStore();
+class _BebrasChallengeScreenState extends State<BebrasChallengeScreen>
+    with BaseStateMixin<BebrasChallengeStore, BebrasChallengeScreen> {
+  final _store = BebrasChallengeStore();
 
   @override
-  MateriStore get store => _store;
+  BebrasChallengeStore get store => _store;
 
   final localization = sl.get<ILocalizationService>();
 
@@ -163,8 +165,15 @@ class _MateriScreenState extends State<MateriScreen>
                         final item = store.items[index];
 
                         return InkWell(
-                          onTap: () {
-                            store.goToDetail.executeIf(item);
+                          onTap: () async {
+                            final secureStorage = sl.get<SecureStorage>()!;
+                            final allkeys = await secureStorage.getAll();
+                            for (var item in allkeys.entries) {
+                              if (item.key.startsWith('assessment-')) {
+                                await secureStorage.remove(item.key);
+                              }
+                            }
+                            Get.toNamed('/assessment_introduction');
                           },
                           child: AspectRatio(
                             aspectRatio: listHeight / (listHeight + 100),

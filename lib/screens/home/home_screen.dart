@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -10,8 +9,6 @@ import 'package:fluxmobileapp/components/user_profile_button.dart';
 import 'package:fluxmobileapp/screens/home/home_store.dart';
 import 'package:fluxmobileapp/screens/main_tab/main_tab_screen.dart';
 import 'package:fluxmobileapp/screens/main_tab/main_tab_store.dart';
-import 'package:fluxmobileapp/services/cached_image_manager.dart';
-import 'package:fluxmobileapp/styles/styles.dart';
 import 'package:fluxmobileapp/utils/theme_extensions.dart';
 import 'package:fluxmobileapp/widgets/app_shimmer.dart';
 import 'package:fluxmobileapp/widgets/curve_widget.dart';
@@ -19,7 +16,6 @@ import 'package:fluxmobileapp/widgets/error_widget.dart';
 import 'package:fluxmobileapp/widgets/flux_app_bar.dart';
 import 'package:fluxmobileapp/widgets/tutorial_walkthrough_basic.dart';
 import 'package:provider/provider.dart';
-import 'package:simple_tooltip/simple_tooltip.dart';
 
 import '../../stores/user_profile_store.dart';
 import '../../appsettings.dart';

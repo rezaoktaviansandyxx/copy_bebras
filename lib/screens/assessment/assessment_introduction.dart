@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:fluxmobileapp/api_services/api_services_models.dart';
 import 'package:fluxmobileapp/baselib/app_services.dart';
-import 'package:fluxmobileapp/baselib/base_state_mixin.dart';
 import 'package:fluxmobileapp/baselib/widgets.dart';
-import 'package:fluxmobileapp/screens/assessment/assessment_question.dart';
 import 'package:fluxmobileapp/services/secure_storage.dart';
-import 'package:fluxmobileapp/styles/styles.dart';
-import 'package:fluxmobileapp/utils/theme_extensions.dart';
-import 'package:fluxmobileapp/widgets/curve_widget.dart';
 import 'package:fluxmobileapp/widgets/error_widget.dart';
-import 'package:mobx/src/api/observable_collections.dart';
 import '../../appsettings.dart';
 import './assessment_store.dart';
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:fluxmobileapp/api_services/api_services_models.dart';
 import 'package:fluxmobileapp/baselib/base_state_mixin.dart';
 import 'package:fluxmobileapp/baselib/localization_service.dart';
 import 'package:fluxmobileapp/baselib/widgets.dart';
@@ -17,12 +18,14 @@ class ArticleScreenStatic extends StatefulWidget {
   final String title;
   final String title2;
   final TextStyle? style;
+  final List<BrowseModel> item;
 
   ArticleScreenStatic(
       {Key? key,
       this.refreshTrigger,
       required this.title,
       required this.title2,
+      required this.item,
       this.style})
       : super(key: key);
 
@@ -44,14 +47,20 @@ class _ArticleScreenStaticState extends State<ArticleScreenStatic>
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      store.dataRefresher.add(null);
-    });
-
-    if (widget.refreshTrigger != null) {
-      compositeSubscription.add(widget.refreshTrigger!.listen((value) {
+    if (widget.item.isEmpty) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         store.dataRefresher.add(null);
-      }));
+      });
+
+      if (widget.refreshTrigger != null) {
+        compositeSubscription.add(widget.refreshTrigger!.listen((value) {
+          store.dataRefresher.add(null);
+        }));
+      }
+    } else {
+      store.items.clear();
+      store.items.addAll(widget.item);
+      store.state = DataState.success;
     }
   }
 

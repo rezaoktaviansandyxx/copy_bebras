@@ -68,9 +68,6 @@ abstract class _ArticleStaticStore extends BaseStore with Store {
       Get.toNamed('/detail', arguments: {
         'item': v,
       });
-      // appServices!.navigatorState!.pushNamed('/detail', arguments: {
-      //   'item': v,
-      // });
     });
 
     registerDispose(() {

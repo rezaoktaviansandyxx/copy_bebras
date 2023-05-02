@@ -4,23 +4,24 @@ import 'package:fluxmobileapp/api_services/api_services_models.dart';
 import 'package:fluxmobileapp/baselib/base_state_mixin.dart';
 import 'package:fluxmobileapp/baselib/localization_service.dart';
 import 'package:fluxmobileapp/baselib/widgets.dart';
-import 'package:fluxmobileapp/screens/static/materi_store.dart';
+import 'package:fluxmobileapp/screens/static/pembahasan_soal_store.dart';
 import 'package:fluxmobileapp/styles/styles.dart';
 import 'package:fluxmobileapp/widgets/app_shimmer.dart';
 import 'package:fluxmobileapp/widgets/session_item_widget.dart';
 import 'package:fluxmobileapp/widgets/error_widget.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../appsettings.dart';
 
-class MateriScreen extends StatefulWidget {
+class PembahasanSoalScreen extends StatefulWidget {
   final Stream? refreshTrigger;
   final String title;
   final String title2;
   final TextStyle? style;
   final List<BrowseModel> item;
 
-  MateriScreen(
+  PembahasanSoalScreen(
       {Key? key,
       this.refreshTrigger,
       required this.title,
@@ -29,15 +30,15 @@ class MateriScreen extends StatefulWidget {
       this.style})
       : super(key: key);
 
-  _MateriScreenState createState() => _MateriScreenState();
+  _PembahasanSoalScreenState createState() => _PembahasanSoalScreenState();
 }
 
-class _MateriScreenState extends State<MateriScreen>
-    with BaseStateMixin<MateriStore, MateriScreen> {
-  final _store = MateriStore();
+class _PembahasanSoalScreenState extends State<PembahasanSoalScreen>
+    with BaseStateMixin<PembahasanSoalStore, PembahasanSoalScreen> {
+  final _store = PembahasanSoalStore();
 
   @override
-  MateriStore get store => _store;
+  PembahasanSoalStore get store => _store;
 
   final localization = sl.get<ILocalizationService>();
 
@@ -163,8 +164,57 @@ class _MateriScreenState extends State<MateriScreen>
                         final item = store.items[index];
 
                         return InkWell(
-                          onTap: () {
-                            store.goToDetail.executeIf(item);
+                          onTap: () async {
+                            final String documentUrl =
+                                'https://drive.google.com/file/d/1soAdPUYXg7uuhc7kV_HHkvRgborev5_Y/view?usp=sharing';
+                            final String documentUrl2 =
+                                'https://drive.google.com/file/d/1fdnMwyEsB42VcTD1-lCNkUXNamMpQ1gL/view?usp=sharing';
+                            if (index == 0) {
+                              if (await canLaunchUrlString(documentUrl)) {
+                                await launchUrlString(documentUrl);
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Tidak dapat diakses $documentUrl',
+                                    ),
+                                    duration: Duration(
+                                      milliseconds: 250,
+                                    ),
+                                    backgroundColor: Colors.red,
+                                  ),
+                                );
+                              }
+                            } else if (index == 1) {
+                              if (await canLaunchUrlString(documentUrl2)) {
+                                await launchUrlString(documentUrl2);
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Tidak dapat diakses $documentUrl2',
+                                    ),
+                                    duration: Duration(
+                                      milliseconds: 250,
+                                    ),
+                                    backgroundColor: Colors.red,
+                                  ),
+                                );
+                              }
+                            }
+                            else{
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Tidak ada dokumen',
+                                    ),
+                                    duration: Duration(
+                                      milliseconds: 250,
+                                    ),
+                                    backgroundColor: Colors.red,
+                                  ),
+                                );
+                            }
                           },
                           child: AspectRatio(
                             aspectRatio: listHeight / (listHeight + 100),

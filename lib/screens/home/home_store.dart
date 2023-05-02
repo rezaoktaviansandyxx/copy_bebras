@@ -39,6 +39,7 @@ abstract class _HomeStore extends BaseStore with Store {
                 refreshTrigger: refreshAllTrigger,
                 title: 'Berita',
                 title2: 'Lihat Semua',
+                item: [],
                 style: TextStyle(
                   fontFamily: 'Quicksand',
                   fontWeight: FontWeight.bold,

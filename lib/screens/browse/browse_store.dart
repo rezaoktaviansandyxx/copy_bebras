@@ -64,6 +64,35 @@ abstract class _BrowseStore extends BaseStore with Store {
         );
         items.addAll(response.payload!);
 
+        //kode hardcoded ada disini
+        List<BrowseModel> listItem = [
+          BrowseModel()
+            ..title = 'Pembahasan Soal'
+            ..type = 'Pembahasan Soal'
+            ..imageThumbnail = 'images/bebras/bebras_pembahasan_soal.png'
+            ..author = 'Bebras Indonesia',
+          BrowseModel()
+            ..title = 'Pembahasan Soal'
+            ..type = 'Pembahasan Soal'
+            ..imageThumbnail = 'images/bebras/bebras_pembahasan_soal_2.png'
+            ..author = 'Bebras Indonesia',
+          BrowseModel()
+            ..title = 'Bebras Challenge'
+            ..type = 'Bebras Challenge'
+            ..imageThumbnail = 'images/bebras/bebras_challenge.png'
+            ..author = 'Bebras Indonesia',
+          BrowseModel()
+            ..title = 'Bebras Challenge'
+            ..type = 'Bebras Challenge'
+            ..imageThumbnail = 'images/bebras/bebras_challenge.png'
+            ..author = 'Bebras Indonesia',
+        ];
+        listItem = listItem
+            .where((element) => element.title?.contains(query) ?? false)
+            .toList();
+        
+        items.addAll(listItem);
+
         state = items.isNotEmpty ? DataState.success : DataState.empty;
         loadMoreState = DataState.none;
       } catch (error) {
@@ -143,7 +172,7 @@ abstract class _BrowseStore extends BaseStore with Store {
 
     showBrowseFilter = Command(() async {
       if (browseFilterStore!.filterData == null) {
-      return;
+        return;
       } else {
         await filterInteraction.handle(
           browseFilterStore!.filterData,

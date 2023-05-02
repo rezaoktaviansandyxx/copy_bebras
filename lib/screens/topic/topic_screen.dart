@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:fluxmobileapp/api_services/api_services_models.dart';
 import 'package:fluxmobileapp/baselib/base_state_mixin.dart';
 import 'package:fluxmobileapp/baselib/widgets.dart';
 import 'package:fluxmobileapp/screens/interest/interest_picker_badge.dart';

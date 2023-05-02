@@ -5,8 +5,6 @@ import 'package:fluxmobileapp/baselib/command.dart';
 import 'package:fluxmobileapp/baselib/interaction.dart';
 import 'package:fluxmobileapp/baselib/localization_service.dart';
 import 'package:fluxmobileapp/baselib/widgets.dart';
-import 'package:fluxmobileapp/screens/login/login_screen.dart';
-import 'package:fluxmobileapp/services/firebase_service.dart';
 import 'package:fluxmobileapp/services/secure_storage.dart';
 import 'package:fluxmobileapp/stores/user_profile_store.dart';
 import 'package:fluxmobileapp/utils/error_handling_utils.dart';

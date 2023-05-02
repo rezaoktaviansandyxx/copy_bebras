@@ -11,14 +11,14 @@ import '../../api_services/api_services.dart';
 import '../../api_services/api_services_models.dart';
 import '../../appsettings.dart';
 
-part 'materi_store.g.dart';
+part 'pembahasan_soal_store.g.dart';
 
-class MateriStore = _MateriStore with _$MateriStore;
+class PembahasanSoalStore = _PembahasanSoalStore with _$PembahasanSoalStore;
 
-abstract class _MateriStore extends BaseStore with Store {
+abstract class _PembahasanSoalStore extends BaseStore with Store {
   var appClient = sl.get<AppClientServices>();
 
-  _MateriStore({
+  _PembahasanSoalStore({
     AppServices? appServices,
     AppClientServices? appClient,
   }) {
@@ -30,7 +30,7 @@ abstract class _MateriStore extends BaseStore with Store {
         state = DataState.loading;
 
         final request = GetBrowseRequest()
-          ..contentType = ['series']
+          ..contentType = ['Pembahasan Soal']
           ..page = 1
           ..pageLimit = pageLimit
           ..query = '';

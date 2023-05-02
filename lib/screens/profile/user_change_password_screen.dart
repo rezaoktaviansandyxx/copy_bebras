@@ -5,7 +5,6 @@ import 'package:fluxmobileapp/baselib/disposable.dart';
 import 'package:fluxmobileapp/baselib/widgets.dart';
 import 'package:fluxmobileapp/stores/user_profile_store.dart';
 import 'package:fluxmobileapp/utils/theme_extensions.dart';
-import 'package:fluxmobileapp/widgets/curve_widget.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
